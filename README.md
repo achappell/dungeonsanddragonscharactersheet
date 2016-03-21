@@ -1,4 +1,4 @@
-pathfinder-cc
+Dungeons and Dragons Characeter Sheet
 =============
-[![Build Status](https://travis-ci.org/achappell/pathfinder-cc.png?branch=master)](https://travis-ci.org/achappell/pathfinder-cc)
-[![codecov.io](https://codecov.io/github/achappell/pathfinder-cc/coverage.svg?branch=develop)](https://codecov.io/github/achappell/pathfinder-cc?branch=develop)
+[![Build Status](https://travis-ci.org/achappell/dungeonsanddragonscharactersheet.png?branch=develop)](https://travis-ci.org/achappell/dungeonsanddragonscharactersheet)
+[![codecov.io](https://codecov.io/github/achappell/dungeonsanddragonscharactersheet/coverage.svg?branch=develop)](https://codecov.io/github/achappell/dungeonsanddragonscharactersheet?branch=develop)

@@ -1,0 +1,15 @@
+PODS:
+  - FastEasyMapping (1.0.2)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+
+DEPENDENCIES:
+  - FastEasyMapping
+  - MagicalRecord (~> 2.3)
+
+SPEC CHECKSUMS:
+  FastEasyMapping: 77d566a817ca73304af3e7fbed130850238f1cb4
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+
+COCOAPODS: 0.39.0

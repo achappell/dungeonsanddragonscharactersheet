@@ -27,11 +27,6 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
         
         self.collectionView!.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func createCharacter(sender: UIButton!) {
         self.performSegueWithIdentifier("CreateCharacter", sender: self)
@@ -64,10 +59,6 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
-    }
-    
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
     }
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {

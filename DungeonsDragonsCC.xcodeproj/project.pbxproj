@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0FCCBD6C6687095BB18F6E57 /* Pods_DungeonsDragonsCCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF3ABC61E1DC30474E9333F /* Pods_DungeonsDragonsCCTests.framework */; };
+		372A5BF51CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A5BF41CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift */; };
 		8587510D85716A53A15E2A9E /* Pods_DungeonsDragonsCC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBC51293DC7C396038DBC34 /* Pods_DungeonsDragonsCC.framework */; };
 		C8A832EE1CA03726004CF6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A832ED1CA03726004CF6A9 /* AppDelegate.swift */; };
 		C8A832F31CA03726004CF6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8A832F11CA03726004CF6A9 /* Main.storyboard */; };
 		C8A832F81CA03726004CF6A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8A832F71CA03726004CF6A9 /* Assets.xcassets */; };
 		C8A832FB1CA03726004CF6A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8A832F91CA03726004CF6A9 /* LaunchScreen.storyboard */; };
-		C8A833111CA03726004CF6A9 /* DungeonsDragonsCCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A833101CA03726004CF6A9 /* DungeonsDragonsCCUITests.swift */; };
 		C8A833451CA0378F004CF6A9 /* AbilityScoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A8331F1CA0378F004CF6A9 /* AbilityScoreCollectionViewCell.swift */; };
 		C8A833461CA0378F004CF6A9 /* CharacterSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A833201CA0378F004CF6A9 /* CharacterSheetViewController.swift */; };
 		C8A833471CA0378F004CF6A9 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A833211CA0378F004CF6A9 /* ScoreLabel.swift */; };
@@ -85,6 +85,7 @@
 		0D433F8C0C9808F0148D1015 /* Pods-DungeonsDragonsCCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DungeonsDragonsCCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DungeonsDragonsCCTests/Pods-DungeonsDragonsCCTests.release.xcconfig"; sourceTree = "<group>"; };
 		2CBC51293DC7C396038DBC34 /* Pods_DungeonsDragonsCC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DungeonsDragonsCC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED33D66798D887C6ACA0D30 /* Pods-DungeonsDragonsCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DungeonsDragonsCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DungeonsDragonsCC/Pods-DungeonsDragonsCC.debug.xcconfig"; sourceTree = "<group>"; };
+		372A5BF41CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DungeonsDragonsCCUITests.swift; sourceTree = "<group>"; };
 		6FF3ABC61E1DC30474E9333F /* Pods_DungeonsDragonsCCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DungeonsDragonsCCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A832EA1CA03726004CF6A9 /* DungeonsDragonsCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DungeonsDragonsCC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A832ED1CA03726004CF6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		C8A833011CA03726004CF6A9 /* DungeonsDragonsCCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DungeonsDragonsCCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A833071CA03726004CF6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8A8330C1CA03726004CF6A9 /* DungeonsDragonsCCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DungeonsDragonsCCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8A833101CA03726004CF6A9 /* DungeonsDragonsCCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DungeonsDragonsCCUITests.swift; sourceTree = "<group>"; };
 		C8A833121CA03726004CF6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8A8331F1CA0378F004CF6A9 /* AbilityScoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilityScoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		C8A833201CA0378F004CF6A9 /* CharacterSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewController.swift; sourceTree = "<group>"; };
@@ -255,8 +255,8 @@
 		C8A8330F1CA03726004CF6A9 /* DungeonsDragonsCCUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C8A833101CA03726004CF6A9 /* DungeonsDragonsCCUITests.swift */,
 				C8A833121CA03726004CF6A9 /* Info.plist */,
+				372A5BF41CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift */,
 			);
 			path = DungeonsDragonsCCUITests;
 			sourceTree = "<group>";
@@ -451,7 +451,7 @@
 		C8A832E21CA03726004CF6A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = AmplifiedProjects;
 				TargetAttributes = {
@@ -676,7 +676,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8A833111CA03726004CF6A9 /* DungeonsDragonsCCUITests.swift in Sources */,
+				372A5BF51CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,10 +851,12 @@
 		C8A8331C1CA03726004CF6A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DungeonsDragonsCCUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amplifiedprojects.DungeonsDragonsCCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = DungeonsDragonsCC;
 				USES_XCTRUNNER = YES;
 			};
@@ -863,6 +865,7 @@
 		C8A8331D1CA03726004CF6A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DungeonsDragonsCCUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amplifiedprojects.DungeonsDragonsCCUITests;

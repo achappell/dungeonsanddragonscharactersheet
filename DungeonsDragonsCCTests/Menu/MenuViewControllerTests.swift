@@ -18,7 +18,7 @@ class MenuViewControllerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
-        viewController.performSelectorOnMainThread("loadView", withObject: nil, waitUntilDone: true)
+        viewController.performSelectorOnMainThread(#selector(UIViewController.loadView), withObject: nil, waitUntilDone: true)
     }
     
     override func tearDown() {

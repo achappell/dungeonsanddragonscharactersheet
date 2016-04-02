@@ -11,7 +11,6 @@
 		8587510D85716A53A15E2A9E /* Pods_DungeonsDragonsCC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBC51293DC7C396038DBC34 /* Pods_DungeonsDragonsCC.framework */; };
 		C8A832EE1CA03726004CF6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A832ED1CA03726004CF6A9 /* AppDelegate.swift */; };
 		C8A832F31CA03726004CF6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8A832F11CA03726004CF6A9 /* Main.storyboard */; };
-		C8A832F61CA03726004CF6A9 /* DungeonsDragonsCC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8A832F41CA03726004CF6A9 /* DungeonsDragonsCC.xcdatamodeld */; };
 		C8A832F81CA03726004CF6A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8A832F71CA03726004CF6A9 /* Assets.xcassets */; };
 		C8A832FB1CA03726004CF6A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8A832F91CA03726004CF6A9 /* LaunchScreen.storyboard */; };
 		C8A833111CA03726004CF6A9 /* DungeonsDragonsCCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A833101CA03726004CF6A9 /* DungeonsDragonsCCUITests.swift */; };
@@ -63,7 +62,6 @@
 		C8A8338C1CA037C9004CF6A9 /* Skill+FEMMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A8337E1CA037C9004CF6A9 /* Skill+FEMMappingTests.swift */; };
 		C8A8338D1CA037C9004CF6A9 /* Trait+FEMMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A8337F1CA037C9004CF6A9 /* Trait+FEMMappingTests.swift */; };
 		C8A8338E1CA037C9004CF6A9 /* testcorerulebook.json in Resources */ = {isa = PBXBuildFile; fileRef = C8A833801CA037C9004CF6A9 /* testcorerulebook.json */; };
-		C8A833911CA03813004CF6A9 /* DungeonsDragonsCC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8A8338F1CA03813004CF6A9 /* DungeonsDragonsCC.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +89,6 @@
 		C8A832EA1CA03726004CF6A9 /* DungeonsDragonsCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DungeonsDragonsCC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A832ED1CA03726004CF6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8A832F21CA03726004CF6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C8A832F51CA03726004CF6A9 /* DungeonsDragonsCC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DungeonsDragonsCC.xcdatamodel; sourceTree = "<group>"; };
 		C8A832F71CA03726004CF6A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8A832FA1CA03726004CF6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8A832FC1CA03726004CF6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,7 +145,6 @@
 		C8A8337E1CA037C9004CF6A9 /* Skill+FEMMappingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Skill+FEMMappingTests.swift"; sourceTree = "<group>"; };
 		C8A8337F1CA037C9004CF6A9 /* Trait+FEMMappingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trait+FEMMappingTests.swift"; sourceTree = "<group>"; };
 		C8A833801CA037C9004CF6A9 /* testcorerulebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testcorerulebook.json; sourceTree = "<group>"; };
-		C8A833901CA03813004CF6A9 /* PathfinderCC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PathfinderCC.xcdatamodel; sourceTree = "<group>"; };
 		D303B879407872AB128184FC /* Pods-DungeonsDragonsCC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DungeonsDragonsCC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DungeonsDragonsCC/Pods-DungeonsDragonsCC.release.xcconfig"; sourceTree = "<group>"; };
 		D39B8A9B34AC3EF56466CE4D /* Pods-DungeonsDragonsCCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DungeonsDragonsCCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DungeonsDragonsCCTests/Pods-DungeonsDragonsCCTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,7 +221,6 @@
 		C8A832EC1CA03726004CF6A9 /* DungeonsDragonsCC */ = {
 			isa = PBXGroup;
 			children = (
-				C8A8338F1CA03813004CF6A9 /* DungeonsDragonsCC.xcdatamodeld */,
 				C8A833641CA037B4004CF6A9 /* Constants.swift */,
 				C8A833651CA037B4004CF6A9 /* CoreRulebook.xcdatamodeld */,
 				C8A833691CA037B4004CF6A9 /* corerulebook.json */,
@@ -239,7 +234,6 @@
 				C8A832F71CA03726004CF6A9 /* Assets.xcassets */,
 				C8A832F91CA03726004CF6A9 /* LaunchScreen.storyboard */,
 				C8A832FC1CA03726004CF6A9 /* Info.plist */,
-				C8A832F41CA03726004CF6A9 /* DungeonsDragonsCC.xcdatamodeld */,
 			);
 			path = DungeonsDragonsCC;
 			sourceTree = "<group>";
@@ -646,13 +640,11 @@
 				C8A8334D1CA0378F004CF6A9 /* MenuViewController.swift in Sources */,
 				C8A833531CA0378F004CF6A9 /* CoreRulebook.swift in Sources */,
 				C8A833561CA0378F004CF6A9 /* FEMMapped.swift in Sources */,
-				C8A833911CA03813004CF6A9 /* DungeonsDragonsCC.xcdatamodeld in Sources */,
 				C8A833541CA0378F004CF6A9 /* AbilityScore+FEMMapping.swift in Sources */,
 				C8A8334C1CA0378F004CF6A9 /* FetchedResultsControllerDataSource.swift in Sources */,
 				C8A8335D1CA0378F004CF6A9 /* Modifier.swift in Sources */,
 				C8A833591CA0378F004CF6A9 /* Race+FEMMapping.swift in Sources */,
 				C8A8335A1CA0378F004CF6A9 /* Skill+FEMMapping.swift in Sources */,
-				C8A832F61CA03726004CF6A9 /* DungeonsDragonsCC.xcdatamodeld in Sources */,
 				C8A833631CA0378F004CF6A9 /* Trait.swift in Sources */,
 				C8A8334E1CA0378F004CF6A9 /* AbilityScore+CoreDataProperties.swift in Sources */,
 				C8A832EE1CA03726004CF6A9 /* AppDelegate.swift in Sources */,
@@ -922,16 +914,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C8A832F41CA03726004CF6A9 /* DungeonsDragonsCC.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C8A832F51CA03726004CF6A9 /* DungeonsDragonsCC.xcdatamodel */,
-			);
-			currentVersion = C8A832F51CA03726004CF6A9 /* DungeonsDragonsCC.xcdatamodel */;
-			path = DungeonsDragonsCC.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		C8A833651CA037B4004CF6A9 /* CoreRulebook.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
@@ -939,16 +921,6 @@
 			);
 			currentVersion = C8A833661CA037B4004CF6A9 /* CoreRulebook.xcdatamodel */;
 			path = CoreRulebook.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		C8A8338F1CA03813004CF6A9 /* DungeonsDragonsCC.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C8A833901CA03813004CF6A9 /* PathfinderCC.xcdatamodel */,
-			);
-			currentVersion = C8A833901CA03813004CF6A9 /* PathfinderCC.xcdatamodel */;
-			path = DungeonsDragonsCC.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

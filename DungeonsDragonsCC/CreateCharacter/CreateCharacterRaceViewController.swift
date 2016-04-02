@@ -16,7 +16,7 @@ class CreateCharacterRaceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        races = Race.MR_findAll()
+        races = Race.MR_findAll() as? [Race]
         tableView.reloadData()
     }
     

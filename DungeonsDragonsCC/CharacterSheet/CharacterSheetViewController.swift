@@ -52,7 +52,7 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
         createCharacterButton.sizeToFit()
         createCharacterButton.center = CGPointMake(CGRectGetWidth(collectionViewCell.bounds)/2.0,CGRectGetHeight(collectionViewCell.bounds)/2.0)
         createCharacterButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        createCharacterButton.addTarget(self, action: "createCharacter:", forControlEvents: .TouchUpInside)
+        createCharacterButton.addTarget(self, action: #selector(CharacterSheetViewController.createCharacter(_:)), forControlEvents: .TouchUpInside)
         collectionViewCell.contentView.addSubview(createCharacterButton)
         
         return collectionViewCell

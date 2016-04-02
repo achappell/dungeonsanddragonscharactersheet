@@ -9,32 +9,15 @@
 import UIKit
 import CoreData
 
-class CreateCharacterRaceViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class CreateCharacterRaceViewController: UITableViewController {
     
-    var raceResultsController : NSFetchedResultsController?
     var races : [Race]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        raceResultsController = Race.allRacesFetchedResultsController()
-//        raceResultsController?.delegate = self
-//        
-//        do {
-//            try raceResultsController?.performFetch()
-//        } catch {
-//            
-//        }
-        
-        races = Race.MR_findAll() as? [Race]
-        self.tableView.reloadData()
-    }
-    
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        if let races = controller.fetchedObjects as? [Race] {
-            self.races = races
-            self.tableView.reloadData()
-        }
+        races = Race.MR_findAll()
+        tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

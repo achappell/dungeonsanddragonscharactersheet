@@ -58,6 +58,16 @@ class CoreRulebookCoordinator {
     
     func migrateToLatestCoreRulebook() -> Bool {
         
+        let deserializer = JSONDeserializer()
+        
+        if let coreRulebookDictionary = coreRulebookDictionary {
+            CoreRulebook.MR_truncateAll()
+            
+            let coreRulebook = deserializer.objectFromDictionary(coreRulebookDictionary, classType: CoreRulebook.self)
+            coreRulebook?.managedObjectContext?.MR_saveWithBlock({ (context) in
+                
+            })
+        }
         
         
         return false

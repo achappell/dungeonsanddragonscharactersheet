@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 4.3">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 4.3">
     <entity name="AbilityScore" representedClassName="AbilityScore" syncable="YES">
         <attribute name="abilityModifier" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="baseScore" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -15,14 +15,14 @@
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="selected" attributeType="Boolean" syncable="YES"/>
-        <relationship name="baseAbilityScores" toMany="YES" minCount="6" maxCount="6" deletionRule="Nullify" ordered="YES" destinationEntity="AbilityScore" inverseName="character" inverseEntity="AbilityScore" syncable="YES"/>
+        <relationship name="baseAbilityScores" toMany="YES" minCount="6" maxCount="6" deletionRule="Cascade" ordered="YES" destinationEntity="AbilityScore" inverseName="character" inverseEntity="AbilityScore" syncable="YES"/>
         <fetchedProperty name="fetchedProperty" optional="YES" transient="YES" syncable="YES">
             <fetchRequest name="fetchedPropertyFetchRequest" entity="Character"/>
         </fetchedProperty>
     </entity>
     <entity name="CoreRulebook" representedClassName="CoreRulebook" syncable="YES">
-        <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Race" inverseName="coreRulebook" inverseEntity="Race" syncable="YES"/>
-        <relationship name="skills" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Skill" inverseName="coreRulebook" inverseEntity="Skill" syncable="YES"/>
+        <relationship name="races" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Race" inverseName="coreRulebook" inverseEntity="Race" syncable="YES"/>
+        <relationship name="skills" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Skill" inverseName="coreRulebook" inverseEntity="Skill" syncable="YES"/>
     </entity>
     <entity name="Modifier" representedClassName=".Modifier" syncable="YES">
         <attribute name="circumstance" optional="YES" attributeType="String" syncable="YES"/>
@@ -41,9 +41,9 @@
         <attribute name="relations" attributeType="String" syncable="YES"/>
         <attribute name="society" attributeType="String" syncable="YES"/>
         <relationship name="coreRulebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreRulebook" inverseName="races" inverseEntity="CoreRulebook" syncable="YES"/>
-        <relationship name="modifiers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Modifier" inverseName="race" inverseEntity="Modifier" syncable="YES"/>
-        <relationship name="scoreModifiers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AbilityScore" inverseName="race" inverseEntity="AbilityScore" syncable="YES"/>
-        <relationship name="traits" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Trait" inverseName="race" inverseEntity="Trait" syncable="YES"/>
+        <relationship name="modifiers" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Modifier" inverseName="race" inverseEntity="Modifier" syncable="YES"/>
+        <relationship name="scoreModifiers" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="AbilityScore" inverseName="race" inverseEntity="AbilityScore" syncable="YES"/>
+        <relationship name="traits" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Trait" inverseName="race" inverseEntity="Trait" syncable="YES"/>
     </entity>
     <entity name="Skill" representedClassName=".Skill" syncable="YES">
         <attribute name="action" optional="YES" attributeType="String" syncable="YES"/>
@@ -79,10 +79,10 @@
     </configuration>
     <elements>
         <element name="AbilityScore" positionX="-2" positionY="27" width="128" height="148"/>
-        <element name="Character" positionX="7" positionY="241" width="128" height="161"/>
-        <element name="CoreRulebook" positionX="-108" positionY="-33" width="128" height="73"/>
-        <element name="Race" positionX="-441" positionY="99" width="128" height="193"/>
+        <element name="Character" positionX="7" positionY="241" width="128" height="164"/>
+        <element name="CoreRulebook" positionX="-108" positionY="-33" width="128" height="75"/>
         <element name="Modifier" positionX="151" positionY="-3" width="128" height="148"/>
+        <element name="Race" positionX="-441" positionY="99" width="128" height="195"/>
         <element name="Skill" positionX="160" positionY="240" width="128" height="238"/>
         <element name="Trait" positionX="322" positionY="54" width="128" height="118"/>
     </elements>

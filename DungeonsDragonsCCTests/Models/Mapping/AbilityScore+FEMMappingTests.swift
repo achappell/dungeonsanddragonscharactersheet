@@ -23,7 +23,7 @@ class AbilityScore_FEMMappingTests: XCTestCase {
     
     func testFEMMapping() {
         
-        let bundle = NSBundle(forClass: CoreRulebook_FEMMappingTests.self)
+        let bundle = NSBundle(forClass: AbilityScore_FEMMappingTests.self)
         let path = bundle.pathForResource("testcorerulebook", ofType: "json")
         
         let data = NSData(contentsOfFile: path!)

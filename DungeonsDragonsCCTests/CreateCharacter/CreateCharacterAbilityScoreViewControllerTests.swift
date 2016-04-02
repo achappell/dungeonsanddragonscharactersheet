@@ -200,4 +200,106 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
     func testNothingAfterCha() {
         XCTAssertNil(viewController.nextTextField(viewController.charismaTextField))
     }
+    
+    func testNextBarButtonEnabled() {
+        class TestViewController : CreateCharacterAbilityScoreViewController {
+            override func shouldAllowNextNavigation() -> Bool {
+                return true
+            }
+        }
+        
+        let testViewController = TestViewController()
+        testViewController.charismaTextField = UITextField()
+        testViewController.strengthTextField = UITextField()
+        testViewController.dexterityTextField = UITextField()
+        testViewController.constitutionTextField = UITextField()
+        testViewController.intelligenceTextField = UITextField()
+        testViewController.wisdomTextField = UITextField()
+        testViewController.nextBarButtonItem = UIBarButtonItem()
+        testViewController.nextBarButtonItem.enabled = false
+        
+        testViewController.textFieldShouldReturn(testViewController.charismaTextField)
+        
+        XCTAssertTrue(testViewController.nextBarButtonItem.enabled)
+        XCTAssertFalse(testViewController.charismaTextField.isFirstResponder())
+        
+    }
+    
+    func testFirstResponderSwitch() {
+        let expectation = expectationWithDescription("Should become responder")
+        class TestTextField : UITextField {
+            var viewController : CreateCharacterAbilityScoreViewController?
+            var expectation : XCTestExpectation?
+            
+            override func becomeFirstResponder() -> Bool {
+                expectation!.fulfill()
+                XCTAssertTrue(viewController?.dexterityTextField == self)
+                return true
+            }
+        }
+        
+        let testViewController = CreateCharacterAbilityScoreViewController()
+        
+        let dexterity = TestTextField()
+        dexterity.viewController = testViewController
+        dexterity.expectation = expectation
+        
+        testViewController.charismaTextField = UITextField()
+        testViewController.strengthTextField = UITextField()
+        testViewController.dexterityTextField = dexterity
+        testViewController.constitutionTextField = UITextField()
+        testViewController.intelligenceTextField = UITextField()
+        testViewController.wisdomTextField = UITextField()
+        testViewController.nextBarButtonItem = UIBarButtonItem()
+        testViewController.nextBarButtonItem.enabled = false
+        
+        testViewController.textFieldShouldReturn(testViewController.strengthTextField)
+        
+        waitForExpectationsWithTimeout(1) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testFirstResponderRelease() {
+        let expectation = expectationWithDescription("Should resign responder")
+        
+        class TestViewController : CreateCharacterAbilityScoreViewController {
+            override func shouldAllowNextNavigation() -> Bool {
+                return true
+            }
+        }
+        
+        class TestTextField : UITextField {
+            var viewController : CreateCharacterAbilityScoreViewController?
+            var expectation : XCTestExpectation?
+            
+            override func resignFirstResponder() -> Bool {
+                XCTAssertTrue(viewController?.charismaTextField == self)
+                expectation!.fulfill()
+                return true
+            }
+        }
+        
+        let testViewController = TestViewController()
+        
+        let charisma = TestTextField()
+        charisma.viewController = testViewController
+        charisma.expectation = expectation
+        
+        testViewController.charismaTextField = charisma
+        testViewController.strengthTextField = UITextField()
+        testViewController.dexterityTextField = UITextField()
+        testViewController.constitutionTextField = UITextField()
+        testViewController.intelligenceTextField = UITextField()
+        testViewController.wisdomTextField = UITextField()
+        testViewController.nextBarButtonItem = UIBarButtonItem()
+        testViewController.nextBarButtonItem.enabled = false
+        
+        testViewController.textFieldShouldReturn(testViewController.charismaTextField)
+        
+        waitForExpectationsWithTimeout(1) { (error) in
+            XCTAssertNil(error)
+        }
+        
+    }
 }

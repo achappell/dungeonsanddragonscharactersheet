@@ -42,4 +42,9 @@ class CreateCharacterNameViewControllerTests: XCTestCase {
         XCTAssertEqual(character.alignment, Constants.Alignment.ChaoticEvil)
         XCTAssertEqual(character.selected, true)
     }
+    
+    func testPickerNumberOfRows() {
+        
+        XCTAssert(viewController.pickerView(UIPickerView(), numberOfRowsInComponent: 0) == 9)
+    }
 }

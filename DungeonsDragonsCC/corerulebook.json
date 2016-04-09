@@ -1,29 +1,63 @@
 {
-	"version": 1,
-	"coreRulebook": {
-		"races": [
-			{
-				"name": "Dwarf",
-				"physicalDescription": "Dwarves are a short and stocky race, and stand about a foot shorter than most humans, with wide, compact bodies that account for their burly appearance. Male and female dwarves pride themselves on the length of their hair, and men often decorate their beards with a variety of clasps and intricate braids. A clean-shaven male dwarf is a sure sign of madness, or worse—no one familiar with their race trusts a beardless dwarf.",
-				"adventures": "Although dwarven adventurers are rare compared to humans, they can be found in most regions of the world. Dwarves often leave the confines of their redoubts to seek glory for their clans, to find wealth with which to enrich the fortress-homes of their birth, or to reclaim fallen dwarven citadels from racial enemies. Dwarven warfare is often characterized by tunnel fighting and melee combat, and as such most dwarves tend toward classes such as fighters and barbarians.",
-				"alignmentAndReligion": "Dwarves are driven by honor and tradition, and while they are often satirized as standoffish, they have a strong sense of friendship and justice, and those who win their trust understand that, while they work hard, they play even harder—especially when good ale is involved. Most dwarves are lawful good.",
-				"relations": "Dwarves and orcs have long dwelt in proximity, theirs a history of violence as old as both their races. Dwarves generally distrust and shun half-orcs. They find halflings, elves, and gnomes to be too frail, flighty, or “pretty” to be worthy of proper respect. It is with humans that dwarves share the strongest link, for humans' industrious nature and hearty appetites come closest to matching those of the dwarven ideal.",
-				"society": "The great distances between their mountain citadels account for many of the cultural differences that exist within dwarven society. Despite these schisms, dwarves throughout the world are characterized by their love of stonework, their passion for stone- and metal-based craftsmanship and architecture, and a fierce hatred of giants, orcs, and goblinoids.",
-				"modifiers": [
-					{
-						"baseScore": 2,
-						"type": 2
-					},
-					{
-						"baseScore": 2,
-						"type": 4
-					},
-					{
-						"baseScore": -2,
-						"type": 5
-					}
-				]
-			}	
-		]
-	}
+    "version": 1,
+    "coreRulebook": {
+        "skills": [{
+                   "name": "Appraise",
+                   "originalText": "You can evaluate the monetary value of an object.",
+                   "check": "A DC 20 Appraise check determines the value of a common item. If you succeed by 5 or more, you also determine if the item has magic properties, although this success does not grant knowledge of the magic item's abilities. If your fail the check by less than 5, you determine the price of that item to within 20% of its actual value. If you fail this check by 5 or more, the price is wildly inaccurate, subject to GM discretion. Particularly rare or exotic items might increase the DC of this check by 5 or more. You can also use this check to determine the most valuable item visible in a treasure hoard. The DC of this check is generally 20 but can increase to as high as 30 for a particularly large hoard.",
+                   "action": "Appraising an item takes 1 standard action. Determining the most valuable object in a treasure hoard takes 1 full-round action.",
+                   "tryAgain": true,
+                   "tryAgainOriginalText": "Additional attempts to Appraise an item reveal the same result.",
+                   "special": "A spellcaster with a raven familiar gains a +3 bonus on Appraise checks.",
+                   "trainedOnly": false,
+                   "keyAbility": 3,
+                   }],
+        "races": [{
+                  "name": "Dwarf",
+                  "physicalDescription": "Dwarves are a short and stocky race, and stand about a foot shorter than most humans, with wide, compact bodies that account for their burly appearance. Male and female dwarves pride themselves on the length of their hair, and men often decorate their beards with a variety of clasps and intricate braids. A clean-shaven male dwarf is a sure sign of madness, or worse—no one familiar with their race trusts a beardless dwarf.",
+                  "adventures": "Although dwarven adventurers are rare compared to humans, they can be found in most regions of the world. Dwarves often leave the confines of their redoubts to seek glory for their clans, to find wealth with which to enrich the fortress-homes of their birth, or to reclaim fallen dwarven citadels from racial enemies. Dwarven warfare is often characterized by tunnel fighting and melee combat, and as such most dwarves tend toward classes such as fighters and barbarians.",
+                  "alignmentAndReligion": "Dwarves are driven by honor and tradition, and while they are often satirized as standoffish, they have a strong sense of friendship and justice, and those who win their trust understand that, while they work hard, they play even harder—especially when good ale is involved. Most dwarves are lawful good.",
+                  "relations": "Dwarves and orcs have long dwelt in proximity, theirs a history of violence as old as both their races. Dwarves generally distrust and shun half-orcs. They find halflings, elves, and gnomes to be too frail, flighty, or “pretty” to be worthy of proper respect. It is with humans that dwarves share the strongest link, for humans' industrious nature and hearty appetites come closest to matching those of the dwarven ideal.",
+                  "society": "The great distances between their mountain citadels account for many of the cultural differences that exist within dwarven society. Despite these schisms, dwarves throughout the world are characterized by their love of stonework, their passion for stone- and metal-based craftsmanship and architecture, and a fierce hatred of giants, orcs, and goblinoids.",
+                  "scoreModifiers": [{
+                                     "baseScore": 2,
+                                     "type": 2
+                                     }, {
+                                     "baseScore": 2,
+                                     "type": 4
+                                     }, {
+                                     "baseScore": -2,
+                                     "type": 5
+                                     }],
+                  "modifiers": [{
+                                "type": "Size",
+                                "name": "Medium",
+                                "value": 0,
+                                "originalText": "Dwarves are Medium creatures and have no bonuses or penalties due to their size."
+                                }, {
+                                "type": "Armor Class",
+                                "name": "Defensive Training",
+                                "value": 4,
+                                "originalText": "Dwarves get a +4 dodge bonus to AC against monsters of the giant subtype. Dodge bonuses represent actively avoiding blows.Any situation that denies you your Dexterity bonus also denies you dodge bonuses.(Wearing armor, however, does not limit these bonuses the way it limits a Dexterity bonus to AC.) Unlike most sorts of bonuses, dodge bonuses stack with each other."
+                                }, {
+                                "type": "Skill",
+                                "name": "Greed",
+                                "value": 2,
+                                "circumstance": "Only for nonmagical goods that contain precious metals or gemstones.",
+                                "originalText": "Dwarves receive a +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.",
+                                "skill": "Appraise"
+                                }],
+                  "traits": [{
+                             "type": "Speed",
+                             "name": "Slow and Steady",
+                             "value": 20,
+                             "originalText": "Dwarves have a base speed of 20 feet, but their speed is never modified by armor or encumbrance."
+                             }, {
+                             "type": "Darkvision",
+                             "name": "Darkvision",
+                             "value": 60,
+                             "originalText": "Darkvision is the extraordinary ability to see with no light source at all, out to a range specified for the creature. Darkvision is black-and-white only (colors cannot be discerned). It does not allow characters to see anything that they could not see otherwise—invisible objects are still invisible, and illusions are still visible as what they seem to be. Likewise, darkvision subjects a creature to gaze attacks normally. The presence of light does not spoil darkvision."
+                             }]
+                  }]
+    }
 }

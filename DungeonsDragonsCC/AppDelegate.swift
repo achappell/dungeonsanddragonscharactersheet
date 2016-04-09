@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MagicalRecord.setupCoreDataStack()
         
         let coreRulebookCoordinator = CoreRulebookCoordinator(jsonURL: nil)
-        coreRulebookCoordinator.isCoreRulebookUpToDate()
+        coreRulebookCoordinator.migrateToLatestCoreRulebook()
         
         return true
     }

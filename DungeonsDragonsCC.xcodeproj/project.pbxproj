@@ -10,6 +10,10 @@
 		0FCCBD6C6687095BB18F6E57 /* Pods_DungeonsDragonsCCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF3ABC61E1DC30474E9333F /* Pods_DungeonsDragonsCCTests.framework */; };
 		372A5BF51CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A5BF41CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift */; };
 		8587510D85716A53A15E2A9E /* Pods_DungeonsDragonsCC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBC51293DC7C396038DBC34 /* Pods_DungeonsDragonsCC.framework */; };
+		C88886621CB02F120029CDA3 /* CoreRulebookCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88886611CB02F120029CDA3 /* CoreRulebookCoordinatorTests.swift */; };
+		C88886641CB03F290029CDA3 /* CreateCharacterRaceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88886631CB03F290029CDA3 /* CreateCharacterRaceViewControllerTests.swift */; };
+		C88886661CB042130029CDA3 /* CharacterSheetViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88886651CB042130029CDA3 /* CharacterSheetViewControllerTests.swift */; };
+		C89520E51CB01A4000210751 /* CreateCharacterRaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89520E41CB01A4000210751 /* CreateCharacterRaceViewController.swift */; };
 		C8A832EE1CA03726004CF6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A832ED1CA03726004CF6A9 /* AppDelegate.swift */; };
 		C8A832F31CA03726004CF6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8A832F11CA03726004CF6A9 /* Main.storyboard */; };
 		C8A832F81CA03726004CF6A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8A832F71CA03726004CF6A9 /* Assets.xcassets */; };
@@ -87,6 +91,10 @@
 		2ED33D66798D887C6ACA0D30 /* Pods-DungeonsDragonsCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DungeonsDragonsCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DungeonsDragonsCC/Pods-DungeonsDragonsCC.debug.xcconfig"; sourceTree = "<group>"; };
 		372A5BF41CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DungeonsDragonsCCUITests.swift; sourceTree = "<group>"; };
 		6FF3ABC61E1DC30474E9333F /* Pods_DungeonsDragonsCCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DungeonsDragonsCCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C88886611CB02F120029CDA3 /* CoreRulebookCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreRulebookCoordinatorTests.swift; sourceTree = "<group>"; };
+		C88886631CB03F290029CDA3 /* CreateCharacterRaceViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCharacterRaceViewControllerTests.swift; sourceTree = "<group>"; };
+		C88886651CB042130029CDA3 /* CharacterSheetViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewControllerTests.swift; sourceTree = "<group>"; };
+		C89520E41CB01A4000210751 /* CreateCharacterRaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCharacterRaceViewController.swift; sourceTree = "<group>"; };
 		C8A832EA1CA03726004CF6A9 /* DungeonsDragonsCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DungeonsDragonsCC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A832ED1CA03726004CF6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8A832F21CA03726004CF6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -196,6 +204,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C88886601CB02EEB0029CDA3 /* CoreRulebook */ = {
+			isa = PBXGroup;
+			children = (
+				C88886611CB02F120029CDA3 /* CoreRulebookCoordinatorTests.swift */,
+			);
+			path = CoreRulebook;
+			sourceTree = "<group>";
+		};
 		C8A832E11CA03726004CF6A9 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +257,7 @@
 		C8A833041CA03726004CF6A9 /* DungeonsDragonsCCTests */ = {
 			isa = PBXGroup;
 			children = (
+				C88886601CB02EEB0029CDA3 /* CoreRulebook */,
 				C8A8336E1CA037C9004CF6A9 /* CharacterHelper.swift */,
 				C8A8336F1CA037C9004CF6A9 /* CharacterSheet */,
 				C8A833711CA037C9004CF6A9 /* CreateCharacter */,
@@ -284,6 +301,7 @@
 			children = (
 				C8A833251CA0378F004CF6A9 /* CreateCharacterAbilityScoreViewController.swift */,
 				C8A833261CA0378F004CF6A9 /* CreateCharacterNameViewController.swift */,
+				C89520E41CB01A4000210751 /* CreateCharacterRaceViewController.swift */,
 			);
 			path = CreateCharacter;
 			sourceTree = "<group>";
@@ -339,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				C8A833701CA037C9004CF6A9 /* AbilityScoreCollectionViewCellTests.swift */,
+				C88886651CB042130029CDA3 /* CharacterSheetViewControllerTests.swift */,
 			);
 			path = CharacterSheet;
 			sourceTree = "<group>";
@@ -348,6 +367,7 @@
 			children = (
 				C8A833721CA037C9004CF6A9 /* CreateCharacterAbilityScoreViewControllerTests.swift */,
 				C8A833731CA037C9004CF6A9 /* CreateCharacterNameViewControllerTests.swift */,
+				C88886631CB03F290029CDA3 /* CreateCharacterRaceViewControllerTests.swift */,
 			);
 			path = CreateCharacter;
 			sourceTree = "<group>";
@@ -644,6 +664,7 @@
 				C8A8334C1CA0378F004CF6A9 /* FetchedResultsControllerDataSource.swift in Sources */,
 				C8A8335D1CA0378F004CF6A9 /* Modifier.swift in Sources */,
 				C8A833591CA0378F004CF6A9 /* Race+FEMMapping.swift in Sources */,
+				C89520E51CB01A4000210751 /* CreateCharacterRaceViewController.swift in Sources */,
 				C8A8335A1CA0378F004CF6A9 /* Skill+FEMMapping.swift in Sources */,
 				C8A833631CA0378F004CF6A9 /* Trait.swift in Sources */,
 				C8A8334E1CA0378F004CF6A9 /* AbilityScore+CoreDataProperties.swift in Sources */,
@@ -656,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C88886621CB02F120029CDA3 /* CoreRulebookCoordinatorTests.swift in Sources */,
 				C8A8338D1CA037C9004CF6A9 /* Trait+FEMMappingTests.swift in Sources */,
 				C8A833831CA037C9004CF6A9 /* CreateCharacterAbilityScoreViewControllerTests.swift in Sources */,
 				C8A833861CA037C9004CF6A9 /* FetchedResultsControllerDataSourceTests.swift in Sources */,
@@ -665,8 +687,10 @@
 				C8A8338B1CA037C9004CF6A9 /* Races+FEMMappingTests.swift in Sources */,
 				C8A833891CA037C9004CF6A9 /* CoreRulebook+FEMMappingTests.swift in Sources */,
 				C8A833821CA037C9004CF6A9 /* AbilityScoreCollectionViewCellTests.swift in Sources */,
+				C88886661CB042130029CDA3 /* CharacterSheetViewControllerTests.swift in Sources */,
 				C8A833851CA037C9004CF6A9 /* CharacterListViewControllerTests.swift in Sources */,
 				C8A833841CA037C9004CF6A9 /* CreateCharacterNameViewControllerTests.swift in Sources */,
+				C88886641CB03F290029CDA3 /* CreateCharacterRaceViewControllerTests.swift in Sources */,
 				C8A833871CA037C9004CF6A9 /* MenuViewControllerTests.swift in Sources */,
 				C8A8338C1CA037C9004CF6A9 /* Skill+FEMMappingTests.swift in Sources */,
 			);

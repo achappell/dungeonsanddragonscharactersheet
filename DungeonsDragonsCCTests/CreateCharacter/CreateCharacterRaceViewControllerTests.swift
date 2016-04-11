@@ -42,4 +42,35 @@ class CreateCharacterRaceViewControllerTests: XCTestCase {
         XCTAssertNotNil(viewController.races, "Races failed to fetch on view did load")
         XCTAssertTrue(viewController.races?.count == 1)
     }
+    
+    func testCellLabel() {
+        
+        class TestTableview : UITableView {
+            private override func dequeueReusableCellWithIdentifier(identifier: String, forIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+                return UITableViewCell(style: .Default, reuseIdentifier: "cell")
+            }
+        }
+        
+        viewController.tableView = TestTableview()
+        
+        Race.MR_truncateAll()
+        let race = Race.MR_createEntity()
+        race?.name = "Dwarf"
+        
+        viewController.viewDidLoad()
+        
+        let cell = viewController.tableView(viewController.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        
+        XCTAssertTrue(cell.textLabel?.text == "Dwarf")
+    }
+    
+    func testNumberOfRows() {
+        Race.MR_truncateAll()
+        let _ = Race.MR_createEntity()
+        
+        
+        viewController.viewDidLoad()
+        
+        XCTAssertTrue(viewController.tableView(viewController.tableView, numberOfRowsInSection: 0) == 1)
+    }
 }

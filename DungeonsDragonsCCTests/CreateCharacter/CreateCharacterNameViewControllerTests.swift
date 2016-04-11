@@ -47,4 +47,21 @@ class CreateCharacterNameViewControllerTests: XCTestCase {
         
         XCTAssert(viewController.pickerView(UIPickerView(), numberOfRowsInComponent: 0) == 9)
     }
+    
+    func testPickerTitleForRow() {
+        XCTAssertTrue(viewController.pickerView(viewController.alignmentPickerView, titleForRow: 2, forComponent: 0) == Constants.Alignment.ChaoticGood)
+    }
+    
+    func testPickerTitleOutsideOfRange() {
+        XCTAssertTrue(viewController.pickerView(viewController.alignmentPickerView, titleForRow: -1, forComponent: 0) == Constants.Alignment.LawfulGood)
+    }
+    
+    func testPickerTitleAboveRange() {
+        XCTAssertTrue(viewController.pickerView(viewController.alignmentPickerView, titleForRow: 10, forComponent: 0) == Constants.Alignment.LawfulGood)
+    }
+    
+    func testPickerSelectRow() {
+        viewController.pickerView(viewController.alignmentPickerView, didSelectRow: 3, inComponent: 0)
+        XCTAssertTrue(viewController.alignmentButton.titleLabel?.text == Constants.Alignment.LawfulNeutral)
+    }
 }

@@ -59,7 +59,7 @@ class CreateCharacterNameViewController: UIViewController, UIPickerViewDelegate,
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if alignments.count > row {
+        if alignments.count > row && row >= 0 {
             return alignments[row]
         }
         return Constants.Alignment.LawfulGood
@@ -72,15 +72,4 @@ class CreateCharacterNameViewController: UIViewController, UIPickerViewDelegate,
             alignmentButton.setTitle(selectedAlignment, forState: .Normal)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

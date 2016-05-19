@@ -61,6 +61,4 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
-Pods
 .DS_Store
-DungeonsDragonsCC.xcworkspace

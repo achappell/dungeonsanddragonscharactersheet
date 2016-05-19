@@ -71,6 +71,7 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let object = fetchedResultsController.objectAtIndexPath(indexPath)
+        
         var cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
         
         if let delegate = delegate {

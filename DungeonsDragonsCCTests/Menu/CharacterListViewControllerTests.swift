@@ -17,7 +17,7 @@ class CharacterListViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CharacterListViewController") as! CharacterListViewController
+        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CharacterListViewController") as! CharacterListViewController
     }
     
     override func tearDown() {
@@ -27,12 +27,12 @@ class CharacterListViewControllerTests: XCTestCase {
     }
     
     func testDeleteObject() {
-        Character.MR_truncateAll()
+        Character.mr_truncateAll()
         let character = CharacterHelper.testCharacter
         viewController.tableView = UITableView()
         viewController.fetchedResultsControllerDataSource(deleteObject: character)
         
-        XCTAssertNil(DungeonsDragonsCC.Character.MR_findFirst())
+        XCTAssertNil(DungeonsDragonsCC.Character.mr_findFirst())
     }
 
 }

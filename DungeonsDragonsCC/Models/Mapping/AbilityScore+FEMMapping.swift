@@ -14,8 +14,8 @@ extension AbilityScore: FEMMapped {
     
     class func mapping() -> FEMMapping {
         
-        let mapping = FEMMapping(entityName: AbilityScore.MR_entityName())
-        mapping.addAttributesFromArray(["abilityModifier","baseScore","tempAdjustment","tempModifier","type"])
+        let mapping = FEMMapping(entityName: AbilityScore.mr_entityName())
+        mapping.addAttributes(from: ["abilityModifier","baseScore","tempAdjustment","tempModifier","type"])
         
         return mapping
     }

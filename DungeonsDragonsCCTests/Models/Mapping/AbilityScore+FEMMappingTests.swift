@@ -23,13 +23,13 @@ class AbilityScore_FEMMappingTests: XCTestCase {
     
     func testFEMMapping() {
         
-        let bundle = NSBundle(forClass: AbilityScore_FEMMappingTests.self)
+        let bundle = Bundle(for: AbilityScore_FEMMappingTests.self)
         let path = bundle.pathForResource("testcorerulebook", ofType: "json")
         
-        let data = NSData(contentsOfFile: path!)
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         
         do {
-            let JSONDict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+            let JSONDict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
             
             
             let deserializer = JSONDeserializer()
@@ -38,7 +38,7 @@ class AbilityScore_FEMMappingTests: XCTestCase {
                 let modifier = deserializer.objectFromDictionary(modifiers[0], classType: AbilityScore.self)! as AbilityScore
                 
                XCTAssertEqual(modifier.baseScore, 2)
-               XCTAssertEqual(modifier.type, AbilityType.Constitution.rawValue)
+               XCTAssertEqual(modifier.type, AbilityType.constitution.rawValue)
             }
         } catch {
             

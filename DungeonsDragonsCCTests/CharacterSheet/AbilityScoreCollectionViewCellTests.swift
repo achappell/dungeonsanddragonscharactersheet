@@ -17,8 +17,8 @@ class AbilityScoreCollectionViewCellTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let characterSheet = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CharacterSheet") as! CharacterSheetViewController
-        cell = characterSheet.collectionView?.dequeueReusableCellWithReuseIdentifier("AbilityHeader", forIndexPath: NSIndexPath(forItem: 0, inSection: 0)) as! AbilityScoreCollectionViewCell
+        let characterSheet = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CharacterSheet") as! CharacterSheetViewController
+        cell = characterSheet.collectionView?.dequeueReusableCell(withReuseIdentifier: "AbilityHeader", for: IndexPath(item: 0, section: 0)) as! AbilityScoreCollectionViewCell
     }
     
     override func tearDown() {

@@ -13,8 +13,8 @@ import MagicalRecord
 @objc(Race)
 class Race: NSManagedObject {
 
-    class func allRacesFetchedResultsController() -> NSFetchedResultsController {
-        return Race.MR_fetchAllSortedBy("name", ascending: true, withPredicate: nil, groupBy: nil, delegate: nil)
+    class func allRacesFetchedResultsController() -> NSFetchedResultsController<NSFetchRequestResult> {
+        return Race.mr_fetchAllSorted(by: "name", ascending: true, with: nil, groupBy: nil, delegate: nil)
     }
 
 }

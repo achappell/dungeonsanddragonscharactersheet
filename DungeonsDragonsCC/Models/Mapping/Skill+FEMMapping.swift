@@ -14,8 +14,8 @@ extension Skill: FEMMapped {
     
     class func mapping() -> FEMMapping {
         
-        let mapping = FEMMapping(entityName: Skill.MR_entityName())
-        mapping.addAttributesFromArray(["action","originalText","check", "name", "keyAbility", "restriction", "special", "trainedOnly", "tryAgain", "tryAgainOriginalText","untrained"])
+        let mapping = FEMMapping(entityName: Skill.mr_entityName())
+        mapping.addAttributes(from: ["action","originalText","check", "name", "keyAbility", "restriction", "special", "trainedOnly", "tryAgain", "tryAgainOriginalText","untrained"])
         
         return mapping
     }

@@ -23,14 +23,14 @@ class CoreRulebook_FEMMappingTests: XCTestCase {
 
     func testFEMMapping() {
         
-        CoreRulebook.MR_truncateAll()
-        Race.MR_truncateAll()
+        CoreRulebook.mr_truncateAll()
+        Race.mr_truncateAll()
         
         
-        let bundle = NSBundle(forClass: CoreRulebook_FEMMappingTests.self)
+        let bundle = Bundle(for: CoreRulebook_FEMMappingTests.self)
         let path = bundle.pathForResource("testcorerulebook", ofType: "json")
         
-        let data = NSData(contentsOfFile: path!)
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         
         let deserializer = JSONDeserializer()
         let coreRulebook = deserializer.objectFromData(data!, classType: CoreRulebook.self)! as CoreRulebook

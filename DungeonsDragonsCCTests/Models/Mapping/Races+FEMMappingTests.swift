@@ -23,13 +23,13 @@ class Races_FEMMappingTests: XCTestCase {
 
     func testExample() {
         
-        let bundle = NSBundle(forClass: CoreRulebook_FEMMappingTests.self)
+        let bundle = Bundle(for: CoreRulebook_FEMMappingTests.self)
         let path = bundle.pathForResource("testcorerulebook", ofType: "json")
         
-        let data = NSData(contentsOfFile: path!)
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         
         do {
-            let JSONDict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+            let JSONDict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
             
             
             let deserializer = JSONDeserializer()

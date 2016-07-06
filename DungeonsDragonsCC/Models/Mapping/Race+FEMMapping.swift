@@ -14,11 +14,11 @@ extension Race: FEMMapped {
     
     class func mapping() -> FEMMapping {
         
-        let mapping = FEMMapping(entityName: Race.MR_entityName())
-        mapping.addAttributesFromArray(["name","physicalDescription","adventures","alignmentAndReligion","relations","society"])
+        let mapping = FEMMapping(entityName: Race.mr_entityName())
+        mapping.addAttributes(from: ["name","physicalDescription","adventures","alignmentAndReligion","relations","society"])
         
-            mapping.addToManyRelationshipMapping(AbilityScore.mapping(), forProperty: "scoreModifiers", keyPath: "scoreModifiers")
-            mapping.addToManyRelationshipMapping(Modifier.mapping(), forProperty: "modifiers", keyPath: "modifiers")
+            mapping.add(toManyRelationshipMapping: AbilityScore.mapping(), forProperty: "scoreModifiers", keyPath: "scoreModifiers")
+            mapping.add(toManyRelationshipMapping: Modifier.mapping(), forProperty: "modifiers", keyPath: "modifiers")
         
         return mapping
     }

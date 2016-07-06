@@ -12,58 +12,58 @@ import CoreData
 class CharacterSheetViewController: UICollectionViewController, NSFetchedResultsControllerDelegate {
     
     var character : Character?
-    lazy var characterFetchedResultsController : NSFetchedResultsController = Character.selectedCharacterFetchedResultsController(self)
+    lazy var characterFetchedResultsController : NSFetchedResultsController<NSFetchRequestResult> = Character.selectedCharacterFetchedResultsController(self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let collectionView = self.collectionView {
-            collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier:"NoCharacterHeader")
+            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier:"NoCharacterHeader")
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.collectionView!.reloadData()
     }
     
-    func createCharacter(sender: UIButton!) {
-        self.performSegueWithIdentifier("CreateCharacter", sender: self)
+    func createCharacter(_ sender: UIButton!) {
+        self.performSegue(withIdentifier: "CreateCharacter", sender: self)
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let character = character {
-            let collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("AbilityHeader", forIndexPath: indexPath) as! AbilityScoreCollectionViewCell
+            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AbilityHeader", for: indexPath) as! AbilityScoreCollectionViewCell
             collectionViewCell.character = character
             return collectionViewCell
         }
         
-        let collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("NoCharacterHeader", forIndexPath: indexPath)
+        let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoCharacterHeader", for: indexPath)
         
-        let createCharacterButton = UIButton(type: .Custom)
-        createCharacterButton.setTitle("Create Character", forState: .Normal)
+        let createCharacterButton = UIButton(type: .custom)
+        createCharacterButton.setTitle("Create Character", for: UIControlState())
         createCharacterButton.sizeToFit()
-        createCharacterButton.center = CGPointMake(CGRectGetWidth(collectionViewCell.bounds)/2.0,CGRectGetHeight(collectionViewCell.bounds)/2.0)
-        createCharacterButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        createCharacterButton.addTarget(self, action: #selector(CharacterSheetViewController.createCharacter(_:)), forControlEvents: .TouchUpInside)
+        createCharacterButton.center = CGPoint(x: collectionViewCell.bounds.width/2.0,y: collectionViewCell.bounds.height/2.0)
+        createCharacterButton.setTitleColor(UIColor.black(), for: UIControlState())
+        createCharacterButton.addTarget(self, action: #selector(CharacterSheetViewController.createCharacter(_:)), for: .touchUpInside)
         collectionViewCell.contentView.addSubview(createCharacterButton)
         
         return collectionViewCell
     }
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         if let character = anObject as? Character {
-            if type == .Delete {
+            if type == .delete {
                 self.character = nil
             } else {
                 self.character = character

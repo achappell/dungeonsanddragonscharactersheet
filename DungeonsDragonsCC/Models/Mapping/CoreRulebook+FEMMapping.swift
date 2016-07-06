@@ -14,10 +14,10 @@ extension CoreRulebook: FEMMapped {
     
     class func mapping() -> FEMMapping {
         
-        let mapping = FEMMapping(entityName: CoreRulebook.MR_entityName())
+        let mapping = FEMMapping(entityName: CoreRulebook.mr_entityName())
         
-        mapping.addToManyRelationshipMapping(Skill.mapping(), forProperty: "skills", keyPath: "coreRulebook.skills")
-        mapping.addToManyRelationshipMapping(Race.mapping(), forProperty: "races", keyPath: "coreRulebook.races")
+        mapping.add(toManyRelationshipMapping: Skill.mapping(), forProperty: "skills", keyPath: "coreRulebook.skills")
+        mapping.add(toManyRelationshipMapping: Race.mapping(), forProperty: "races", keyPath: "coreRulebook.races")
         
         return mapping
     }

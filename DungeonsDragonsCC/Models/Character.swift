@@ -13,74 +13,74 @@ import MagicalRecord
 @objc(Character)
 class Character: NSManagedObject {
 
-    class func insertItemWithAbilityScores(abilityScores: NSOrderedSet) -> Character {
+    class func insertItemWithAbilityScores(_ abilityScores: OrderedSet) -> Character {
         
-        let character = Character.MR_createEntity()!
+        let character = Character.mr_createEntity()!
         
         character.baseAbilityScores = abilityScores
         
         return character
     }
     
-    class func allCharactersFetchedResultsController() -> NSFetchedResultsController {
-        return Character.MR_fetchAllSortedBy("name", ascending: true, withPredicate: nil, groupBy: nil, delegate: nil)
+    class func allCharactersFetchedResultsController() -> NSFetchedResultsController<NSFetchRequestResult> {
+        return Character.mr_fetchAllSorted(by: "name", ascending: true, with: nil, groupBy: nil, delegate: nil)
     }
     
-    class func selectedCharacterFetchedResultsController(delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
-        return Character.MR_fetchAllGroupedBy(nil, withPredicate: NSPredicate(format: "selected=1"), sortedBy: nil, ascending: true, delegate: delegate)
+    class func selectedCharacterFetchedResultsController(_ delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController<NSFetchRequestResult> {
+        return Character.mr_fetchAllGrouped(by: nil, with: Predicate(format: "selected=1"), sortedBy: nil, ascending: true, delegate: delegate)
     }
     
-    class func setSelectedCharacter(character: Character) {
-        MagicalRecord.saveWithBlockAndWait { (context) -> Void in
-            if let selectedCharacters = Character.MR_findAllWithPredicate(NSPredicate(format: "selected ==1")) as! [Character]? {
+    class func setSelectedCharacter(_ character: Character) {
+        MagicalRecord.save(blockAndWait: { (context) -> Void in
+            if let selectedCharacters = Character.mr_findAll(with: Predicate(format: "selected ==1")) as! [Character]? {
                 for selectedCharacter in selectedCharacters {
                     selectedCharacter.selected = false
                 }
             }
             
             character.selected = true
-        }
+        })
     }
     
-    class func characterWithName(name: String) -> Character? {
-        return Character.MR_findFirstByAttribute("name", withValue: name)
+    class func characterWithName(_ name: String) -> Character? {
+        return Character.mr_findFirst(byAttribute: "name", withValue: name)
     }
     
-    func abilityScoreOfType(abilityType: AbilityType) -> AbilityScore {
+    func abilityScoreOfType(_ abilityType: AbilityType) -> AbilityScore {
         for abilityScore in baseAbilityScores.array as! [AbilityScore] {
             if abilityScore.type == abilityType.rawValue {
                 return abilityScore
             }
         }
         
-        let defaultAbilityScore = AbilityScore.MR_createEntity()!
+        let defaultAbilityScore = AbilityScore.mr_createEntity()!
         defaultAbilityScore.baseScore = 10
         defaultAbilityScore.type = abilityType.rawValue
         return defaultAbilityScore
     }
     
     func strength() -> AbilityScore {
-        return abilityScoreOfType(.Strength)
+        return abilityScoreOfType(.strength)
     }
     
     func dexterity() -> AbilityScore {
-        return abilityScoreOfType(.Dexterity)
+        return abilityScoreOfType(.dexterity)
     }
     
     func constitution() -> AbilityScore {
-        return abilityScoreOfType(.Constitution)
+        return abilityScoreOfType(.constitution)
     }
     
     func intelligence() -> AbilityScore {
-        return abilityScoreOfType(.Intelligence)
+        return abilityScoreOfType(.intelligence)
     }
     
     func wisdom() -> AbilityScore {
-        return abilityScoreOfType(.Wisdom)
+        return abilityScoreOfType(.wisdom)
     }
     
     func charisma() -> AbilityScore {
-        return abilityScoreOfType(.Charisma)
+        return abilityScoreOfType(.charisma)
     }
 
 }

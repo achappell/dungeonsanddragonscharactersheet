@@ -19,6 +19,6 @@ extension Character {
     @NSManaged var gender: String
     @NSManaged var name: String
     @NSManaged var selected: Bool
-    @NSManaged var baseAbilityScores: NSOrderedSet
+    @NSManaged var baseAbilityScores: OrderedSet
 
 }

@@ -17,8 +17,8 @@ class CharacterSheetViewControllerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CharacterSheet") as! CharacterSheetViewController
-        viewController.performSelectorOnMainThread(#selector(UIViewController.loadView), withObject: nil, waitUntilDone: true)
+        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CharacterSheet") as! CharacterSheetViewController
+        viewController.performSelector(onMainThread: #selector(UIViewController.loadView), with: nil, waitUntilDone: true)
     }
     
     override func tearDown() {
@@ -33,17 +33,17 @@ class CharacterSheetViewControllerTests: XCTestCase {
     }
     
     func testUpdatedResultsController() {
-        let character = Character.MR_createEntity()
+        let character = Character.mr_createEntity()
         
-        viewController.controller(viewController.characterFetchedResultsController, didChangeObject: character!, atIndexPath: nil, forChangeType: .Update, newIndexPath: nil)
+        viewController.controller(viewController.characterFetchedResultsController, didChange: character!, at: nil, for: .update, newIndexPath: nil)
         
         XCTAssertTrue(viewController.character == character)
     }
     
     func testDeletedResultsController() {
-        let character = Character.MR_createEntity()
+        let character = Character.mr_createEntity()
         
-        viewController.controller(viewController.characterFetchedResultsController, didChangeObject: character!, atIndexPath: nil, forChangeType: .Delete, newIndexPath: nil)
+        viewController.controller(viewController.characterFetchedResultsController, didChange: character!, at: nil, for: .delete, newIndexPath: nil)
         
         XCTAssertNil(viewController.character)
     }

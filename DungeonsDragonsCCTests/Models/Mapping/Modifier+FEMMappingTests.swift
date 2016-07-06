@@ -44,13 +44,13 @@ class Modifier_FEMMappingTests: XCTestCase {
     
     func getModifiers() -> [[String:AnyObject]]? {
         
-        let bundle = NSBundle(forClass: CoreRulebook_FEMMappingTests.self)
+        let bundle = Bundle(for: CoreRulebook_FEMMappingTests.self)
         let path = bundle.pathForResource("testcorerulebook", ofType: "json")
         
-        let data = NSData(contentsOfFile: path!)
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         
         do {
-            let JSONDict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+            let JSONDict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
 
             if let book = JSONDict["coreRulebook"] as? [String: AnyObject], races = book["races"] as? [[String: AnyObject]], modifiers = races[0]["modifiers"] as? [[String:AnyObject]] {
                 return modifiers

@@ -13,7 +13,7 @@ import CoreData
 class FetchedResultsControllerDataSourceTests: XCTestCase {
     
     var fetchedResultsControllerDataSource : FetchedResultsControllerDataSource!
-    var tableview = UITableView(frame: CGRectMake(0, 0, 300, 300))
+    var tableview = UITableView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
 
     override func setUp() {
         super.setUp()
@@ -40,103 +40,103 @@ class FetchedResultsControllerDataSourceTests: XCTestCase {
     }
     
     func testCanEditRows() {
-        XCTAssertTrue(fetchedResultsControllerDataSource.tableView(fetchedResultsControllerDataSource.tableView!, canEditRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)))
+        XCTAssertTrue(fetchedResultsControllerDataSource.tableView(fetchedResultsControllerDataSource.tableView!, canEditRowAt: IndexPath(row: 0, section: 0)))
     }
     
     func testInsertObject() {
         
         class TestTableView : UITableView {
-            override func insertRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
-                XCTAssertTrue(indexPaths.first!.row == 1)
+            override func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+                XCTAssertTrue((indexPaths.first! as NSIndexPath).row == 1)
             }
-            override func moveRowAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath) {
+            override func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
                 XCTAssertTrue(false)
             }
-            override func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
-            override func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
         }
         
-        let tableView = TestTableView(frame:CGRectZero, style: .Grouped)
+        let tableView = TestTableView(frame:CGRect.zero, style: .grouped)
         
         fetchedResultsControllerDataSource = FetchedResultsControllerDataSource(tableView: tableView, fetchedResultsController: NSFetchedResultsController(), reuseIdentifier: "Cell")
         
-        fetchedResultsControllerDataSource.controller(fetchedResultsControllerDataSource.fetchedResultsController, didChangeObject: "nil", atIndexPath: NSIndexPath(forRow: 0, inSection:0), forChangeType: .Insert, newIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        fetchedResultsControllerDataSource.controller(fetchedResultsControllerDataSource.fetchedResultsController, didChange: "nil", at: IndexPath(row: 0, section:0), for: .insert, newIndexPath: IndexPath(row: 1, section: 0))
     }
     
     func testMoveObject() {
         
         class TestTableView : UITableView {
-            override func insertRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
-            override func moveRowAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath) {
-                XCTAssertTrue(indexPath.row == 0)
-                XCTAssertTrue(newIndexPath.row == 1)
+            override func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
+                XCTAssertTrue((indexPath as NSIndexPath).row == 0)
+                XCTAssertTrue((newIndexPath as NSIndexPath).row == 1)
             }
-            override func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
-            override func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
         }
         
-        let tableView = TestTableView(frame:CGRectZero, style: .Grouped)
+        let tableView = TestTableView(frame:CGRect.zero, style: .grouped)
         
         fetchedResultsControllerDataSource = FetchedResultsControllerDataSource(tableView: tableView, fetchedResultsController: NSFetchedResultsController(), reuseIdentifier: "Cell")
         
-        fetchedResultsControllerDataSource.controller(fetchedResultsControllerDataSource.fetchedResultsController, didChangeObject: "nil", atIndexPath: NSIndexPath(forRow: 0, inSection:0), forChangeType: .Move, newIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        fetchedResultsControllerDataSource.controller(fetchedResultsControllerDataSource.fetchedResultsController, didChange: "nil", at: IndexPath(row: 0, section:0), for: .move, newIndexPath: IndexPath(row: 1, section: 0))
     }
 
     func testDeleteObject() {
         
         class TestTableView : UITableView {
-            override func insertRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
-            override func moveRowAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath) {
+            override func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
                 XCTAssertTrue(false)
             }
-            override func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
-                XCTAssertTrue(indexPaths.first!.row == 0)
+            override func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+                XCTAssertTrue((indexPaths.first! as NSIndexPath).row == 0)
             }
-            override func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
         }
         
-        let tableView = TestTableView(frame:CGRectZero, style: .Grouped)
+        let tableView = TestTableView(frame:CGRect.zero, style: .grouped)
         
         fetchedResultsControllerDataSource = FetchedResultsControllerDataSource(tableView: tableView, fetchedResultsController: NSFetchedResultsController(), reuseIdentifier: "Cell")
         
-        fetchedResultsControllerDataSource.controller(fetchedResultsControllerDataSource.fetchedResultsController, didChangeObject: "nil", atIndexPath: NSIndexPath(forRow: 0, inSection:0), forChangeType: .Delete, newIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        fetchedResultsControllerDataSource.controller(fetchedResultsControllerDataSource.fetchedResultsController, didChange: "nil", at: IndexPath(row: 0, section:0), for: .delete, newIndexPath: IndexPath(row: 1, section: 0))
     }
     
     func testUpdateObject() {
         
         class TestTableView : UITableView {
-            override func insertRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
-            override func moveRowAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath) {
+            override func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
                 XCTAssertTrue(false)
             }
-            override func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
+            override func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
                 XCTAssertTrue(false)
             }
-            override func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
-                XCTAssertTrue(indexPaths.first!.row == 0)
+            override func reloadRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
+                XCTAssertTrue((indexPaths.first! as NSIndexPath).row == 0)
             }
         }
         
-        let tableView = TestTableView(frame:CGRectZero, style: .Grouped)
+        let tableView = TestTableView(frame:CGRect.zero, style: .grouped)
         
         fetchedResultsControllerDataSource = FetchedResultsControllerDataSource(tableView: tableView, fetchedResultsController: NSFetchedResultsController(), reuseIdentifier: "Cell")
         
-        fetchedResultsControllerDataSource.controller(fetchedResultsControllerDataSource.fetchedResultsController, didChangeObject: "nil", atIndexPath: NSIndexPath(forRow: 0, inSection:0), forChangeType: .Update, newIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        fetchedResultsControllerDataSource.controller(fetchedResultsControllerDataSource.fetchedResultsController, didChange: "nil", at: IndexPath(row: 0, section:0), for: .update, newIndexPath: IndexPath(row: 1, section: 0))
     }
 }

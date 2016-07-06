@@ -11,9 +11,9 @@ import FastEasyMapping
 import MagicalRecord
 
 struct JSONDeserializer {
-    func objectFromData<T: FEMMapped>(data: NSData, classType: T.Type) -> T? {
+    func objectFromData<T: FEMMapped>(_ data: Data, classType: T.Type) -> T? {
         do {
-            let JSONDict = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+            let JSONDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
             
             return objectFromDictionary(JSONDict, classType: classType)
         } catch {
@@ -23,8 +23,8 @@ struct JSONDeserializer {
         return nil
     }
     
-    func objectFromDictionary<T: FEMMapped>(dictionary: [String:AnyObject], classType: T.Type) -> T? {
-        let object = FEMDeserializer.objectFromRepresentation(dictionary, mapping: classType.mapping(), context: NSManagedObjectContext.MR_defaultContext())
+    func objectFromDictionary<T: FEMMapped>(_ dictionary: [String:AnyObject], classType: T.Type) -> T? {
+        let object = FEMDeserializer.object(fromRepresentation: dictionary, mapping: classType.mapping(), context: NSManagedObjectContext.mr_default())
         
         return object as? T
     }

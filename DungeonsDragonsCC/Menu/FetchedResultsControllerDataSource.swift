@@ -10,14 +10,14 @@ import UIKit
 import CoreData
 
 protocol FetchedResultsControllerDataSourceDelegate {
-    func fetchedResultsControllerDataSource(inout configureCell: UITableViewCell, withObject: AnyObject) -> Void
-    func fetchedResultsControllerDataSource(deleteObject deleteObject: AnyObject) -> Void
+    func fetchedResultsControllerDataSource(_ configureCell: inout UITableViewCell, withObject: AnyObject) -> Void
+    func fetchedResultsControllerDataSource(deleteObject: AnyObject) -> Void
 }
 
 class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     var delegate : FetchedResultsControllerDataSourceDelegate?
-    var fetchedResultsController : NSFetchedResultsController {
+    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult> {
         didSet {
             fetchedResultsController.delegate = self
             
@@ -47,21 +47,21 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
         }
     }
     
-    init(tableView: UITableView, fetchedResultsController: NSFetchedResultsController, reuseIdentifier: String) {
+    init(tableView: UITableView, fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>, reuseIdentifier: String) {
         self.tableView = tableView
         self.fetchedResultsController = fetchedResultsController
         self.reuseIdentifier = reuseIdentifier
         self.paused = false
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = fetchedResultsController.sections {
             return sections.count
         }
         return 0
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
             let sectionInfo = sections[section]
             return sectionInfo.numberOfObjects
@@ -69,10 +69,10 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let object = fetchedResultsController.objectAtIndexPath(indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let object = fetchedResultsController.object(at: indexPath)
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         
         if let delegate = delegate {
             delegate.fetchedResultsControllerDataSource(&cell, withObject: object)
@@ -81,37 +81,37 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
         return cell
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             if let delegate = delegate {
-                delegate.fetchedResultsControllerDataSource(deleteObject: self.fetchedResultsController.objectAtIndexPath(indexPath))
+                delegate.fetchedResultsControllerDataSource(deleteObject: self.fetchedResultsController.object(at: indexPath))
             }
         }
     }
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView?.beginUpdates()
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView?.endUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         if let indexPath = indexPath, newIndexPath = newIndexPath, tableView = tableView {
-            if type == .Insert {
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
-            } else if type == .Move {
-                tableView.moveRowAtIndexPath(indexPath, toIndexPath: newIndexPath)
-            } else if type == .Delete {
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            } else if type == .Update {
-                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            if type == .insert {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            } else if type == .move {
+                tableView.moveRow(at: indexPath, to: newIndexPath)
+            } else if type == .delete {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else if type == .update {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
             }
         }
     }
@@ -119,7 +119,7 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
     func selectedItem() -> AnyObject? {
         if let tableView = tableView {
             if let path = tableView.indexPathForSelectedRow {
-                return self.fetchedResultsController.objectAtIndexPath(path)
+                return self.fetchedResultsController.object(at: path)
             }
         }
         return nil

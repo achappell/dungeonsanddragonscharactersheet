@@ -13,7 +13,7 @@ import CoreData
 class CoreRulebook: NSManagedObject {
 
     class func coreRulebook() -> CoreRulebook? {
-        return CoreRulebook.MR_findFirst()
+        return CoreRulebook.mr_findFirst()
     }
 
 }

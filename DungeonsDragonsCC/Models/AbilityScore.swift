@@ -10,20 +10,20 @@ import Foundation
 import CoreData
 
 @objc enum AbilityType : Int16 {
-    case Strength
-    case Dexterity
-    case Constitution
-    case Intelligence
-    case Wisdom
-    case Charisma
+    case strength
+    case dexterity
+    case constitution
+    case intelligence
+    case wisdom
+    case charisma
 }
 
 @objc(AbilityScore)
 class AbilityScore: NSManagedObject {
 
-    class func insertItemWithBaseScore(baseScore: Int16, type: AbilityType) -> AbilityScore {
+    class func insertItemWithBaseScore(_ baseScore: Int16, type: AbilityType) -> AbilityScore {
         
-        let abilityScore = AbilityScore.MR_createEntity()!
+        let abilityScore = AbilityScore.mr_createEntity()!
         abilityScore.baseScore = baseScore
         abilityScore.type = type.rawValue
     

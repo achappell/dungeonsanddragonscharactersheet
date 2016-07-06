@@ -10,13 +10,13 @@ import Foundation
 
 class CoreRulebookCoordinator {
     
-    let jsonURL : NSURL?
+    let jsonURL : URL?
     lazy var coreRulebookDictionary : [String:AnyObject]? = {
         
         if let jsonURL = self.coreRulebookJSONURL, jsonPath = jsonURL.path {
             do {
-            let jsonData = try NSData(contentsOfFile: jsonPath, options: NSDataReadingOptions.DataReadingMappedIfSafe)
-                if let jsonObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.AllowFragments) as? [String: AnyObject] {
+            let jsonData = try Data(contentsOf: URL(fileURLWithPath: jsonPath), options: NSData.ReadingOptions.dataReadingMappedIfSafe)
+                if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
                     return jsonObject
                 }
             }
@@ -27,17 +27,17 @@ class CoreRulebookCoordinator {
         
         return nil
     }()
-    lazy var coreRulebookJSONURL : NSURL? = {
+    lazy var coreRulebookJSONURL : URL? = {
         if let jsonURL = self.jsonURL {
             return jsonURL
         }
-        if let jsonURL = NSBundle.mainBundle().URLForResource("corerulebook", withExtension: "json") {
+        if let jsonURL = Bundle.main().urlForResource("corerulebook", withExtension: "json") {
             return jsonURL
         }
         return nil
     }()
     
-    init(jsonURL: NSURL?) {
+    init(jsonURL: URL?) {
         self.jsonURL = jsonURL
     }
 
@@ -46,12 +46,12 @@ class CoreRulebookCoordinator {
     }
     
     func currentVersion() -> Int {
-        return NSUserDefaults.standardUserDefaults().integerForKey("CoreRulebookVersion")
+        return UserDefaults.standard().integer(forKey: "CoreRulebookVersion")
     }
     
     func latestVersion() -> Int {
         if let coreRulebookDictionary = coreRulebookDictionary, version = coreRulebookDictionary["version"] {
-            return version.integerValue
+            return version.intValue
         }
         return 0
     }
@@ -61,10 +61,10 @@ class CoreRulebookCoordinator {
         let deserializer = JSONDeserializer()
         
         if let coreRulebookDictionary = coreRulebookDictionary {
-            CoreRulebook.MR_truncateAll()
+            CoreRulebook.mr_truncateAll()
             
             let coreRulebook = deserializer.objectFromDictionary(coreRulebookDictionary, classType: CoreRulebook.self)
-            coreRulebook?.managedObjectContext?.MR_saveWithBlock({ (context) in
+            coreRulebook?.managedObjectContext?.mr_save({ (context) in
                 
             })
         }

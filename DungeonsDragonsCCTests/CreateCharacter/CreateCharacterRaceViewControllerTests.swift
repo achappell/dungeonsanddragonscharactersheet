@@ -17,8 +17,8 @@ class CreateCharacterRaceViewControllerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CreateCharacterRaceViewController") as! CreateCharacterRaceViewController
-        viewController.performSelectorOnMainThread(#selector(UIViewController.loadView), withObject: nil, waitUntilDone: true)
+        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateCharacterRaceViewController") as! CreateCharacterRaceViewController
+        viewController.performSelector(onMainThread: #selector(UIViewController.loadView), with: nil, waitUntilDone: true)
     }
     
     override func tearDown() {
@@ -33,8 +33,8 @@ class CreateCharacterRaceViewControllerTests: XCTestCase {
     }
     
     func testViewDidLoad() {
-        Race.MR_truncateAll()
-        let _ = Race.MR_createEntity()
+        Race.mr_truncateAll()
+        let _ = Race.mr_createEntity()
         
         
         viewController.viewDidLoad()
@@ -46,27 +46,27 @@ class CreateCharacterRaceViewControllerTests: XCTestCase {
     func testCellLabel() {
         
         class TestTableview : UITableView {
-            private override func dequeueReusableCellWithIdentifier(identifier: String, forIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-                return UITableViewCell(style: .Default, reuseIdentifier: "cell")
+            private override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
+                return UITableViewCell(style: .default, reuseIdentifier: "cell")
             }
         }
         
         viewController.tableView = TestTableview()
         
-        Race.MR_truncateAll()
-        let race = Race.MR_createEntity()
+        Race.mr_truncateAll()
+        let race = Race.mr_createEntity()
         race?.name = "Dwarf"
         
         viewController.viewDidLoad()
         
-        let cell = viewController.tableView(viewController.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        let cell = viewController.tableView(viewController.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
         
         XCTAssertTrue(cell.textLabel?.text == "Dwarf")
     }
     
     func testNumberOfRows() {
-        Race.MR_truncateAll()
-        let _ = Race.MR_createEntity()
+        Race.mr_truncateAll()
+        let _ = Race.mr_createEntity()
         
         
         viewController.viewDidLoad()

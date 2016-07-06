@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicalRecord
 
 class CharacterListViewController: UIViewController, FetchedResultsControllerDataSourceDelegate {
     
@@ -15,30 +16,30 @@ class CharacterListViewController: UIViewController, FetchedResultsControllerDat
         return FetchedResultsControllerDataSource(tableView: tableView, fetchedResultsController: Character.allCharactersFetchedResultsController(), reuseIdentifier: "Cell")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.fetchedResultsControllerDataSource.paused = false
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         fetchedResultsControllerDataSource.paused = true
     }
     
-    func fetchedResultsControllerDataSource(deleteObject deleteObject: AnyObject) {
+    func fetchedResultsControllerDataSource(deleteObject: AnyObject) {
         if let character = deleteObject as? Character {
             let actionName = String(format: NSLocalizedString("Delete \(character.name)", comment: "Delete undo action name"))
             undoManager?.setActionName(actionName)
-            let success = Character.MR_deleteEntity(character)
-            if success() {
+            let success = character.mr_deleteEntity()
+            if success {
                 tableView.reloadData()
             }
         }
     }
     
-    func fetchedResultsControllerDataSource(inout configureCell: UITableViewCell, withObject: AnyObject) {
+    func fetchedResultsControllerDataSource(_ configureCell: inout UITableViewCell, withObject: AnyObject) {
         if let character = withObject as? Character {
             configureCell.textLabel?.text = character.name
         }

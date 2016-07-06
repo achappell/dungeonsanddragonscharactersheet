@@ -14,8 +14,8 @@ extension Trait: FEMMapped {
     
     class func mapping() -> FEMMapping {
         
-        let mapping = FEMMapping(entityName: Trait.MR_entityName())
-        mapping.addAttributesFromArray(["value","originalText","type", "name"])
+        let mapping = FEMMapping(entityName: Trait.mr_entityName())
+        mapping.addAttributes(from: ["value","originalText","type", "name"])
         
         return mapping
     }

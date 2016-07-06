@@ -35,12 +35,12 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
     }
     
     func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateCharacterAbilityScoreViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CreateCharacterAbilityScoreViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(CreateCharacterAbilityScoreViewController.keyboardWasShown(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(CreateCharacterAbilityScoreViewController.keyboardWillBeHidden(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default().removeObserver(self)
     }
     
     func shouldAllowNextNavigation() -> Bool {
@@ -54,56 +54,56 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
     }
     
     func createCharacter() -> Character {
-        let strengthScore = AbilityScore.insertItemWithBaseScore(Int16(self.strengthTextField.text!)!, type: .Strength)
-        let dexterityScore = AbilityScore.insertItemWithBaseScore(Int16(self.dexterityTextField.text!)!, type: .Dexterity)
-        let constitutionScore = AbilityScore.insertItemWithBaseScore(Int16(self.constitutionTextField.text!)!, type: .Constitution)
-        let intelligenceScore = AbilityScore.insertItemWithBaseScore(Int16(self.intelligenceTextField.text!)!, type: .Intelligence)
-        let wisdomScore = AbilityScore.insertItemWithBaseScore(Int16(self.wisdomTextField.text!)!, type: .Wisdom)
-        let charismaScore = AbilityScore.insertItemWithBaseScore(Int16(self.charismaTextField.text!)!, type: .Charisma)
+        let strengthScore = AbilityScore.insertItemWithBaseScore(Int16(self.strengthTextField.text!)!, type: .strength)
+        let dexterityScore = AbilityScore.insertItemWithBaseScore(Int16(self.dexterityTextField.text!)!, type: .dexterity)
+        let constitutionScore = AbilityScore.insertItemWithBaseScore(Int16(self.constitutionTextField.text!)!, type: .constitution)
+        let intelligenceScore = AbilityScore.insertItemWithBaseScore(Int16(self.intelligenceTextField.text!)!, type: .intelligence)
+        let wisdomScore = AbilityScore.insertItemWithBaseScore(Int16(self.wisdomTextField.text!)!, type: .wisdom)
+        let charismaScore = AbilityScore.insertItemWithBaseScore(Int16(self.charismaTextField.text!)!, type: .charisma)
         
-        let abilityScores = NSOrderedSet(array: [strengthScore,dexterityScore, constitutionScore, intelligenceScore, wisdomScore, charismaScore])
+        let abilityScores = OrderedSet(array: [strengthScore,dexterityScore, constitutionScore, intelligenceScore, wisdomScore, charismaScore])
         let character = Character.insertItemWithAbilityScores(abilityScores)
         
         return character
     }
     
-    func keyboardWasShown(aNotification: NSNotification) {
-        if let info = aNotification.userInfo, kbSize = info[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.size {
+    func keyboardWasShown(_ aNotification: Notification) {
+        if let info = (aNotification as NSNotification).userInfo, kbSize = info[UIKeyboardFrameBeginUserInfoKey]?.cgRectValue.size {
         
             let contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0)
             scrollView.contentInset = contentInsets
             scrollView.scrollIndicatorInsets = contentInsets
         
             view.frame.size.height -= kbSize.height
-            if !CGRectContainsPoint(view.frame, activeField!.frame.origin) {
+            if !view.frame.contains(activeField!.frame.origin) {
                 scrollView.scrollRectToVisible(activeField!.frame, animated: true)
             }
         }
     }
     
-    func keyboardWillBeHidden(aNotification: NSNotification) {
+    func keyboardWillBeHidden(_ aNotification: Notification) {
         let contentInsets = UIEdgeInsetsZero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         activeField = textField
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let textField = nextTextField(textField) {
             textField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
         }
         
-        nextBarButtonItem.enabled = shouldAllowNextNavigation()
+        nextBarButtonItem.isEnabled = shouldAllowNextNavigation()
         
         return true
     }
     
-    func nextTextField(textField: UITextField) -> UITextField? {
+    func nextTextField(_ textField: UITextField) -> UITextField? {
         if textField == strengthTextField {
             return dexterityTextField
         } else if textField == dexterityTextField {
@@ -119,14 +119,14 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
         return nil
     }
 
-    @IBAction func cancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let viewController = segue.destinationViewController as! CreateCharacterNameViewController
         viewController.character = createCharacter()

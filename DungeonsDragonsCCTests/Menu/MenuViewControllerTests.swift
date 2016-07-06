@@ -17,8 +17,8 @@ class MenuViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
-        viewController.performSelectorOnMainThread(#selector(UIViewController.loadView), withObject: nil, waitUntilDone: true)
+        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        viewController.performSelector(onMainThread: #selector(UIViewController.loadView), with: nil, waitUntilDone: true)
     }
     
     override func tearDown() {
@@ -36,7 +36,7 @@ class MenuViewControllerTests: XCTestCase {
     func testViewControllerHasOneRow() {
         viewController.viewDidLoad()
         
-        XCTAssertTrue(viewController.tableView.numberOfRowsInSection(0) == 1, "There should only be one row in the first section")
+        XCTAssertTrue(viewController.tableView.numberOfRows(inSection: 0) == 1, "There should only be one row in the first section")
     }
     
     func testViewControllerHasManageCharactersRow() {
@@ -44,7 +44,7 @@ class MenuViewControllerTests: XCTestCase {
         
         viewController.tableView.reloadData()
         
-        let cell = viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+        let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         XCTAssertEqual(cell?.textLabel?.text, "Manage Characters", "The first row should be to manage characters")
     }
 

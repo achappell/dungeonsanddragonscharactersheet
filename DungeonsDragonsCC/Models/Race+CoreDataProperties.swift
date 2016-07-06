@@ -21,8 +21,8 @@ extension Race {
     @NSManaged var relations: String
     @NSManaged var society: String
     @NSManaged var coreRulebook: CoreRulebook?
-    @NSManaged var scoreModifiers: NSOrderedSet
-    @NSManaged var traits: NSOrderedSet
-    @NSManaged var modifiers: NSOrderedSet
+    @NSManaged var scoreModifiers: OrderedSet
+    @NSManaged var traits: OrderedSet
+    @NSManaged var modifiers: OrderedSet
 
 }

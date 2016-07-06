@@ -43,35 +43,24 @@ class AbilityScoreCollectionViewCell: UICollectionViewCell {
         didSet {
             
             if let character = self.character {
-                strengthLabel.text = String(format: "%\(2)d", character.strength().baseScore)
-                dexterityLabel.text = String(format: "%\(2)d", character.dexterity().baseScore)
-                constitutionLabel.text = String(format: "%\(2)d", character.constitution().baseScore)
-                intelligenceLabel.text = String(format: "%\(2)d", character.intelligence().baseScore)
-                wisdomLabel.text = String(format: "%\(2)d", character.wisdom().baseScore)
-                charismaLabel.text = String(format: "%\(2)d", character.charisma().baseScore)
                 
-                strengthModLabel.text = String(format: "%\(2)d", character.strength().abilityModifier)
-                dexterityModLabel.text = String(format: "%\(2)d", character.dexterity().abilityModifier)
-                constitutionModLabel.text = String(format: "%\(2)d", character.constitution().abilityModifier)
-                intelligenceModLabel.text = String(format: "%\(2)d", character.intelligence().abilityModifier)
-                wisdomModLabel.text = String(format: "%\(2)d", character.wisdom().abilityModifier)
-                charismaModLabel.text = String(format: "%\(2)d", character.charisma().abilityModifier)
-                
-                strengthTempAdjLabel.text = String(format: "%\(2)d", character.strength().tempAdjustment)
-                dexterityTempAdjLabel.text = String(format: "%\(2)d", character.dexterity().tempAdjustment)
-                constitutionTempAdjLabel.text = String(format: "%\(2)d", character.constitution().tempAdjustment)
-                intelligenceTempAdjLabel.text = String(format: "%\(2)d", character.intelligence().tempAdjustment)
-                wisdomTempAdjLabel.text = String(format: "%\(2)d", character.wisdom().tempAdjustment)
-                charismaTempAdjLabel.text = String(format: "%\(2)d", character.charisma().tempAdjustment)
-                
-                strengthTempModLabel.text = String(format: "%\(2)d", character.strength().tempModifier)
-                dexterityTempModLabel.text = String(format: "%\(2)d", character.dexterity().tempModifier)
-                constitutionTempModLabel.text = String(format: "%\(2)d", character.constitution().tempModifier)
-                intelligenceTempModLabel.text = String(format: "%\(2)d", character.intelligence().tempModifier)
-                wisdomTempModLabel.text = String(format: "%\(2)d", character.wisdom().tempModifier)
-                charismaTempModLabel.text = String(format: "%\(2)d", character.charisma().tempModifier)
+                configure(labels: [strengthLabel, strengthModLabel, strengthTempAdjLabel, strengthTempModLabel], with: character.strength())
+                configure(labels: [dexterityLabel, dexterityModLabel, dexterityTempAdjLabel, dexterityTempModLabel], with: character.dexterity())
+                configure(labels: [constitutionLabel, constitutionModLabel, constitutionTempAdjLabel, constitutionTempModLabel], with: character.constitution())
+                configure(labels: [intelligenceLabel, intelligenceModLabel, intelligenceTempAdjLabel, intelligenceTempModLabel], with: character.intelligence())
+                configure(labels: [wisdomLabel, wisdomModLabel, wisdomTempAdjLabel, wisdomTempModLabel], with: character.wisdom())
+                configure(labels: [charismaLabel, charismaModLabel, charismaTempAdjLabel, charismaTempModLabel], with: character.charisma())
             }
         }
     }
     
+    // labels should be [baseLabel, modLabel, temporaryAdjustmentLabel, temporaryModLabel]
+    func configure(labels: [UILabel], with abilityScore: AbilityScore) {
+        if labels.count > 3 {
+            labels[0].text = String(format: "%\(2)d", abilityScore.baseScore)
+            labels[1].text = String(format: "%\(2)d", abilityScore.abilityModifier)
+            labels[2].text = String(format: "%\(2)d", abilityScore.tempAdjustment)
+            labels[3].text = String(format: "%\(2)d", abilityScore.tempModifier)
+        }
+    }
 }

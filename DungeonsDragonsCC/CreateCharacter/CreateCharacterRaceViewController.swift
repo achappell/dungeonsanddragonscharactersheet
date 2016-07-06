@@ -16,21 +16,21 @@ class CreateCharacterRaceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        races = Race.MR_findAll() as? [Race]
+        races = Race.mr_findAll() as? [Race]
         tableView.reloadData()
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let races = races {
             return races.count
         }
         return 0
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel!.text = races?[indexPath.row].name
+        cell.textLabel!.text = races?[(indexPath as NSIndexPath).row].name
         
         return cell
     }

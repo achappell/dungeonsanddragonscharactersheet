@@ -1,10 +1,10 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode10
 xcode_workspace: DungeonsDragonsCC.xcworkspace
 xcode_scheme: DungeonsDragonsCCTravis
-xcode_sdk: iphonesimulator9.3
+xcode_sdk: iphonesimulator10
 script:
-  - xcodebuild test -workspace DungeonsDragonsCC.xcworkspace -scheme DungeonsDragonsCCTravis -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'
+  - xcodebuild test -workspace DungeonsDragonsCC.xcworkspace -scheme DungeonsDragonsCCTravis -destination 'platform=iOS Simulator,name=iPhone 6'
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 before_script:

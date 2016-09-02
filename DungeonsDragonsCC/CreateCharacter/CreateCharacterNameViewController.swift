@@ -28,7 +28,7 @@ class CreateCharacterNameViewController: UIViewController, UIPickerViewDelegate,
                 character.name = name
             }
             
-            if let age = ageTextField.text, ageInt = Int16(age) {
+            if let age = ageTextField.text, let ageInt = Int16(age) {
                 character.age = ageInt
             }
         

@@ -28,7 +28,7 @@ class CoreRulebook_FEMMappingTests: XCTestCase {
         
         
         let bundle = Bundle(for: CoreRulebook_FEMMappingTests.self)
-        let path = bundle.pathForResource("testcorerulebook", ofType: "json")
+        let path = bundle.path(forResource: "testcorerulebook", ofType: "json")
         
         let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         

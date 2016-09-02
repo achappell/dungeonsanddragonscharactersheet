@@ -23,7 +23,7 @@ class CoreRulebookCoordinatorTests: XCTestCase {
     
     func testCoreRulebookJSONURL() {
         let bundle = Bundle(for: CoreRulebookCoordinatorTests.self)
-        let path = bundle.pathForResource("testcorerulebook", ofType: "json")
+        let path = bundle.path(forResource: "testcorerulebook", ofType: "json")
         let coordinator : CoreRulebookCoordinator = CoreRulebookCoordinator(jsonURL: NSURL(fileURLWithPath: path!) as URL)
         
         XCTAssertNotNil(coordinator.coreRulebookJSONURL)

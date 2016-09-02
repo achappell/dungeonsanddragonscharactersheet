@@ -11,7 +11,7 @@ import UIKit
 class ScoreLabel: UILabel {
 
     override func awakeFromNib() {
-        self.layer.borderColor = UIColor.black().cgColor
+        self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 1
     }
 }

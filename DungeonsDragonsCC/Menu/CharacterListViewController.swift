@@ -28,7 +28,7 @@ class CharacterListViewController: UIViewController, FetchedResultsControllerDat
         fetchedResultsControllerDataSource.paused = true
     }
     
-    func fetchedResultsControllerDataSource(deleteObject: AnyObject) {
+    func fetchedResultsControllerDataSource(_ deleteObject: AnyObject) {
         if let character = deleteObject as? Character {
             let actionName = String(format: NSLocalizedString("Delete \(character.name)", comment: "Delete undo action name"))
             undoManager?.setActionName(actionName)

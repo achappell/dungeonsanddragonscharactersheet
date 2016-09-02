@@ -11,7 +11,7 @@ import CoreData
 
 protocol FetchedResultsControllerDataSourceDelegate {
     func fetchedResultsControllerDataSource(_ configureCell: inout UITableViewCell, withObject: AnyObject) -> Void
-    func fetchedResultsControllerDataSource(deleteObject: AnyObject) -> Void
+    func fetchedResultsControllerDataSource(_ deleteObject: AnyObject) -> Void
 }
 
 class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate {
@@ -88,7 +88,7 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if let delegate = delegate {
-                delegate.fetchedResultsControllerDataSource(deleteObject: self.fetchedResultsController.object(at: indexPath))
+                delegate.fetchedResultsControllerDataSource(self.fetchedResultsController.object(at: indexPath))
             }
         }
     }
@@ -101,9 +101,9 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
         tableView?.endUpdates()
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
-        if let indexPath = indexPath, newIndexPath = newIndexPath, tableView = tableView {
+        if let indexPath = indexPath, let newIndexPath = newIndexPath, let tableView = tableView {
             if type == .insert {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             } else if type == .move {

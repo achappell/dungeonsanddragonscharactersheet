@@ -34,7 +34,7 @@ class CreateCharacterNameViewControllerTests: XCTestCase {
         viewController.selectedAlignment = Constants.Alignment.ChaoticEvil
         viewController.nameTextField.text = "Amanda"
         
-        viewController.save(1)
+        viewController.save(1 as AnyObject)
         
         XCTAssertEqual(character.name, "Amanda")
         XCTAssertEqual(character.age, 18)

@@ -14,7 +14,7 @@ import CoreData
 
 extension CoreRulebook {
 
-    @NSManaged var races: OrderedSet
-    @NSManaged var skills: OrderedSet
+    @NSManaged var races: NSOrderedSet
+    @NSManaged var skills: NSOrderedSet
 
 }

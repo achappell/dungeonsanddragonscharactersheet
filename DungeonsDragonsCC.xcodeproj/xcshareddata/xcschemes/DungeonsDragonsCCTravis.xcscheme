@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3364D0008E28E8DB1CC448A930F7E129"
+               BlueprintIdentifier = "5C1816BDC9DD9B0BE013E0EDB411C5A9"
                BuildableName = "Pods_DungeonsDragonsCCTests.framework"
                BlueprintName = "Pods-DungeonsDragonsCCTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BAA04356670E60006C0B27B1BF137F8C"
+               BlueprintIdentifier = "8B82E9E2D833EAB1803ACBB7142F6BC3"
                BuildableName = "Pods_DungeonsDragonsCC.framework"
                BlueprintName = "Pods-DungeonsDragonsCC"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

@@ -5,6 +5,8 @@ xcode_scheme: DungeonsDragonsCCTravis
 xcode_sdk: iphonesimulator10.0
 script:
   - xcodebuild test -workspace DungeonsDragonsCC.xcworkspace -scheme DungeonsDragonsCCTravis -destination 'platform=iOS Simulator,name=iPhone 6'
+before_install: 
+  - gem install cocoapods -v '1.0.1' 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 before_script:

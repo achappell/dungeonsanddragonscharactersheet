@@ -13,7 +13,7 @@ import MagicalRecord
 @objc(Character)
 class Character: NSManagedObject {
 
-    class func insertItemWithAbilityScores(_ abilityScores: OrderedSet) -> Character {
+    class func insertItemWithAbilityScores(_ abilityScores: NSOrderedSet) -> Character {
         
         let character = Character.mr_createEntity()!
         
@@ -27,12 +27,12 @@ class Character: NSManagedObject {
     }
     
     class func selectedCharacterFetchedResultsController(_ delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController<NSFetchRequestResult> {
-        return Character.mr_fetchAllGrouped(by: nil, with: Predicate(format: "selected=1"), sortedBy: nil, ascending: true, delegate: delegate)
+        return Character.mr_fetchAllGrouped(by: nil, with: NSPredicate(format: "selected=1"), sortedBy: nil, ascending: true, delegate: delegate)
     }
     
     class func setSelectedCharacter(_ character: Character) {
         MagicalRecord.save(blockAndWait: { (context) -> Void in
-            if let selectedCharacters = Character.mr_findAll(with: Predicate(format: "selected ==1")) as! [Character]? {
+            if let selectedCharacters = Character.mr_findAll(with: NSPredicate(format: "selected ==1")) as! [Character]? {
                 for selectedCharacter in selectedCharacters {
                     selectedCharacter.selected = false
                 }

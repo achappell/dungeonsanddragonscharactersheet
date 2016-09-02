@@ -46,7 +46,7 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
         createCharacterButton.setTitle("Create Character", for: UIControlState())
         createCharacterButton.sizeToFit()
         createCharacterButton.center = CGPoint(x: collectionViewCell.bounds.width/2.0,y: collectionViewCell.bounds.height/2.0)
-        createCharacterButton.setTitleColor(UIColor.black(), for: UIControlState())
+        createCharacterButton.setTitleColor(UIColor.black, for: UIControlState())
         createCharacterButton.addTarget(self, action: #selector(CharacterSheetViewController.createCharacter(_:)), for: .touchUpInside)
         collectionViewCell.contentView.addSubview(createCharacterButton)
         
@@ -61,7 +61,7 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
         return 1
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         if let character = anObject as? Character {
             if type == .delete {
                 self.character = nil

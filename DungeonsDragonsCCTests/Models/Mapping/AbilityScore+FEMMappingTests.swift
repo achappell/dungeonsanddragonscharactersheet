@@ -24,7 +24,7 @@ class AbilityScore_FEMMappingTests: XCTestCase {
     func testFEMMapping() {
         
         let bundle = Bundle(for: AbilityScore_FEMMappingTests.self)
-        let path = bundle.pathForResource("testcorerulebook", ofType: "json")
+        let path = bundle.path(forResource: "testcorerulebook", ofType: "json")
         
         let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         
@@ -34,8 +34,8 @@ class AbilityScore_FEMMappingTests: XCTestCase {
             
             let deserializer = JSONDeserializer()
             
-            if let book = JSONDict["coreRulebook"] as? [String: AnyObject], races = book["races"] as? [[String: AnyObject]], modifiers = races[0]["modifiers"] as? [[String:Int]] {
-                let modifier = deserializer.objectFromDictionary(modifiers[0], classType: AbilityScore.self)! as AbilityScore
+            if let book = JSONDict["coreRulebook"] as? [String: AnyObject], let races = book["races"] as? [[String: AnyObject]], let modifiers = races[0]["modifiers"] as? [[String:Int]] {
+                let modifier = deserializer.objectFromDictionary(modifiers[0] as [String : AnyObject], classType: AbilityScore.self)! as AbilityScore
                 
                XCTAssertEqual(modifier.baseScore, 2)
                XCTAssertEqual(modifier.type, AbilityType.constitution.rawValue)

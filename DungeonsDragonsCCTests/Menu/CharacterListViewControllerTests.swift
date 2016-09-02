@@ -30,7 +30,7 @@ class CharacterListViewControllerTests: XCTestCase {
         Character.mr_truncateAll()
         let character = CharacterHelper.testCharacter
         viewController.tableView = UITableView()
-        viewController.fetchedResultsControllerDataSource(deleteObject: character)
+        viewController.fetchedResultsControllerDataSource(character)
         
         XCTAssertNil(DungeonsDragonsCC.Character.mr_findFirst())
     }

@@ -13,9 +13,9 @@ class CoreRulebookCoordinator {
     let jsonURL : URL?
     lazy var coreRulebookDictionary : [String:AnyObject]? = {
         
-        if let jsonURL = self.coreRulebookJSONURL, jsonPath = jsonURL.path {
+        if let jsonURL = self.coreRulebookJSONURL {
             do {
-            let jsonData = try Data(contentsOf: URL(fileURLWithPath: jsonPath), options: NSData.ReadingOptions.dataReadingMappedIfSafe)
+            let jsonData = try Data(contentsOf: URL(fileURLWithPath: jsonURL.path), options: Data.ReadingOptions.mappedIfSafe)
                 if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
                     return jsonObject
                 }
@@ -31,7 +31,7 @@ class CoreRulebookCoordinator {
         if let jsonURL = self.jsonURL {
             return jsonURL
         }
-        if let jsonURL = Bundle.main().urlForResource("corerulebook", withExtension: "json") {
+        if let jsonURL = Bundle.main.url(forResource: "corerulebook", withExtension: "json") {
             return jsonURL
         }
         return nil
@@ -46,11 +46,11 @@ class CoreRulebookCoordinator {
     }
     
     func currentVersion() -> Int {
-        return UserDefaults.standard().integer(forKey: "CoreRulebookVersion")
+        return UserDefaults.standard.integer(forKey: "CoreRulebookVersion")
     }
     
     func latestVersion() -> Int {
-        if let coreRulebookDictionary = coreRulebookDictionary, version = coreRulebookDictionary["version"] {
+        if let coreRulebookDictionary = coreRulebookDictionary, let version = coreRulebookDictionary["version"] {
             return version.intValue
         }
         return 0

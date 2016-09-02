@@ -44,18 +44,18 @@ class AbilityScoreCollectionViewCell: UICollectionViewCell {
             
             if let character = self.character {
                 
-                configure(labels: [strengthLabel, strengthModLabel, strengthTempAdjLabel, strengthTempModLabel], with: character.strength())
-                configure(labels: [dexterityLabel, dexterityModLabel, dexterityTempAdjLabel, dexterityTempModLabel], with: character.dexterity())
-                configure(labels: [constitutionLabel, constitutionModLabel, constitutionTempAdjLabel, constitutionTempModLabel], with: character.constitution())
-                configure(labels: [intelligenceLabel, intelligenceModLabel, intelligenceTempAdjLabel, intelligenceTempModLabel], with: character.intelligence())
-                configure(labels: [wisdomLabel, wisdomModLabel, wisdomTempAdjLabel, wisdomTempModLabel], with: character.wisdom())
-                configure(labels: [charismaLabel, charismaModLabel, charismaTempAdjLabel, charismaTempModLabel], with: character.charisma())
+                configure([strengthLabel, strengthModLabel, strengthTempAdjLabel, strengthTempModLabel], with: character.strength())
+                configure([dexterityLabel, dexterityModLabel, dexterityTempAdjLabel, dexterityTempModLabel], with: character.dexterity())
+                configure([constitutionLabel, constitutionModLabel, constitutionTempAdjLabel, constitutionTempModLabel], with: character.constitution())
+                configure([intelligenceLabel, intelligenceModLabel, intelligenceTempAdjLabel, intelligenceTempModLabel], with: character.intelligence())
+                configure([wisdomLabel, wisdomModLabel, wisdomTempAdjLabel, wisdomTempModLabel], with: character.wisdom())
+                configure([charismaLabel, charismaModLabel, charismaTempAdjLabel, charismaTempModLabel], with: character.charisma())
             }
         }
     }
     
     // labels should be [baseLabel, modLabel, temporaryAdjustmentLabel, temporaryModLabel]
-    func configure(labels: [UILabel], with abilityScore: AbilityScore) {
+    func configure(_ labels: [UILabel], with abilityScore: AbilityScore) {
         if labels.count > 3 {
             labels[0].text = String(format: "%\(2)d", abilityScore.baseScore)
             labels[1].text = String(format: "%\(2)d", abilityScore.abilityModifier)

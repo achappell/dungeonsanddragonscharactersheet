@@ -24,7 +24,7 @@ class Races_FEMMappingTests: XCTestCase {
     func testExample() {
         
         let bundle = Bundle(for: CoreRulebook_FEMMappingTests.self)
-        let path = bundle.pathForResource("testcorerulebook", ofType: "json")
+        let path = bundle.path(forResource: "testcorerulebook", ofType: "json")
         
         let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         
@@ -34,7 +34,7 @@ class Races_FEMMappingTests: XCTestCase {
             
             let deserializer = JSONDeserializer()
             
-            if let book = JSONDict["coreRulebook"] as? [String: AnyObject], races = book["races"] as? [[String: AnyObject]] {
+            if let book = JSONDict["coreRulebook"] as? [String: AnyObject], let races = book["races"] as? [[String: AnyObject]] {
                 let race = deserializer.objectFromDictionary(races[0], classType: Race.self)! as Race
             
                 XCTAssertEqual(race.name, "Dwarf")

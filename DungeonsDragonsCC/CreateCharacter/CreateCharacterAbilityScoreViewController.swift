@@ -35,12 +35,12 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
     }
     
     func registerForKeyboardNotifications() {
-        NotificationCenter.default().addObserver(self, selector: #selector(CreateCharacterAbilityScoreViewController.keyboardWasShown(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default().addObserver(self, selector: #selector(CreateCharacterAbilityScoreViewController.keyboardWillBeHidden(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateCharacterAbilityScoreViewController.keyboardWasShown(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CreateCharacterAbilityScoreViewController.keyboardWillBeHidden(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     deinit {
-        NotificationCenter.default().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     func shouldAllowNextNavigation() -> Bool {
@@ -61,15 +61,17 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
         let wisdomScore = AbilityScore.insertItemWithBaseScore(Int16(self.wisdomTextField.text!)!, type: .wisdom)
         let charismaScore = AbilityScore.insertItemWithBaseScore(Int16(self.charismaTextField.text!)!, type: .charisma)
         
-        let abilityScores = OrderedSet(array: [strengthScore,dexterityScore, constitutionScore, intelligenceScore, wisdomScore, charismaScore])
+        let abilityScores = NSOrderedSet(array: [strengthScore,dexterityScore, constitutionScore, intelligenceScore, wisdomScore, charismaScore])
         let character = Character.insertItemWithAbilityScores(abilityScores)
         
         return character
     }
     
     func keyboardWasShown(_ aNotification: Notification) {
-        if let info = (aNotification as NSNotification).userInfo, kbSize = info[UIKeyboardFrameBeginUserInfoKey]?.cgRectValue.size {
+        if let info = (aNotification as NSNotification).userInfo, let kbSizeValue = info[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
         
+            let kbSize = kbSizeValue.cgRectValue.size
+            
             let contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0)
             scrollView.contentInset = contentInsets
             scrollView.scrollIndicatorInsets = contentInsets
@@ -82,7 +84,7 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
     }
     
     func keyboardWillBeHidden(_ aNotification: Notification) {
-        let contentInsets = UIEdgeInsetsZero
+        let contentInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
@@ -126,9 +128,9 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let viewController = segue.destinationViewController as! CreateCharacterNameViewController
+        let viewController = segue.destination as! CreateCharacterNameViewController
         viewController.character = createCharacter()
     }
 

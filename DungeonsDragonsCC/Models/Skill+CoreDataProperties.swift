@@ -12,6 +12,7 @@
 import Foundation
 import CoreData
 
+// codebeat:disable[TOO_MANY_IVARS]
 extension Skill {
 
     @NSManaged var name: String
@@ -29,3 +30,4 @@ extension Skill {
     @NSManaged var coreRulebook: CoreRulebook?
 
 }
+// codebeat:enable[TOO_MANY_IVARS]

@@ -15,16 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         
         MagicalRecord.setupCoreDataStack()
         
         let coreRulebookCoordinator = CoreRulebookCoordinator(jsonURL: nil)
-        coreRulebookCoordinator.migrateToLatestCoreRulebook()
+        let success = coreRulebookCoordinator.migrateToLatestCoreRulebook()
         
-        return true
+        return success
     }
 }
 

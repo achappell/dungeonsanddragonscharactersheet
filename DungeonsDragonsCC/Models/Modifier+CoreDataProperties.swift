@@ -12,6 +12,7 @@
 import Foundation
 import CoreData
 
+// codebeat:disable[TOO_MANY_IVARS]
 extension Modifier {
 
     @NSManaged var circumstance: String
@@ -23,3 +24,4 @@ extension Modifier {
     @NSManaged var race: Race?
 
 }
+// codebeat:enable[TOO_MANY_IVARS]

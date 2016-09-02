@@ -12,6 +12,7 @@
 import Foundation
 import CoreData
 
+// codebeat:disable[TOO_MANY_IVARS]
 extension AbilityScore {
 
     @NSManaged var abilityModifier: Int16
@@ -23,3 +24,4 @@ extension AbilityScore {
     @NSManaged var race: Race?
 
 }
+// codebeat:enable[TOO_MANY_IVARS]

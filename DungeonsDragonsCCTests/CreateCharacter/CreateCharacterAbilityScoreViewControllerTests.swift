@@ -73,8 +73,8 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
         viewControllerMock.scrollView = UIScrollView()
         viewControllerMock.registerForKeyboardNotifications()
         
-        NotificationCenter.default().post(name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default().post(name: NSNotification.Name.UIKeyboardWillHide, object: nil);
+        NotificationCenter.default.post(name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.UIKeyboardWillHide, object: nil);
         
         XCTAssertTrue(viewControllerMock.didCallKeyboardWasShown, "View Controller did not call keyBoardWasShown:")
         XCTAssertTrue(viewControllerMock.didCallKeyboardWillBeHidden, "View Controller did not call keyBroadWillBeHidden:")
@@ -221,12 +221,12 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
         testViewController.textFieldShouldReturn(testViewController.charismaTextField)
         
         XCTAssertTrue(testViewController.nextBarButtonItem.isEnabled)
-        XCTAssertFalse(testViewController.charismaTextField.isFirstResponder())
+        XCTAssertFalse(testViewController.charismaTextField.isFirstResponder)
         
     }
     
     func testFirstResponderSwitch() {
-        let expectation = self.expectation(withDescription: "Should become responder")
+        let expectation = self.expectation(description: "Should become responder")
         class TestTextField : UITextField {
             var viewController : CreateCharacterAbilityScoreViewController?
             var expectation : XCTestExpectation?
@@ -255,13 +255,13 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
         
         testViewController.textFieldShouldReturn(testViewController.strengthTextField)
         
-        waitForExpectations(withTimeout: 1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error)
         }
     }
     
     func testFirstResponderRelease() {
-        let expectation = self.expectation(withDescription: "Should resign responder")
+        let expectation = self.expectation(description: "Should resign responder")
         
         class TestViewController : CreateCharacterAbilityScoreViewController {
             override func shouldAllowNextNavigation() -> Bool {
@@ -297,7 +297,7 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
         
         testViewController.textFieldShouldReturn(testViewController.charismaTextField)
         
-        waitForExpectations(withTimeout: 1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error)
         }
         

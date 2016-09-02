@@ -12,6 +12,7 @@
 import Foundation
 import CoreData
 
+// codebeat:disable[TOO_MANY_IVARS]
 extension Race {
 
     @NSManaged var adventures: String
@@ -21,8 +22,9 @@ extension Race {
     @NSManaged var relations: String
     @NSManaged var society: String
     @NSManaged var coreRulebook: CoreRulebook?
-    @NSManaged var scoreModifiers: OrderedSet
-    @NSManaged var traits: OrderedSet
-    @NSManaged var modifiers: OrderedSet
+    @NSManaged var scoreModifiers: NSOrderedSet
+    @NSManaged var traits: NSOrderedSet
+    @NSManaged var modifiers: NSOrderedSet
 
 }
+// codebeat:enable[TOO_MANY_IVARS]

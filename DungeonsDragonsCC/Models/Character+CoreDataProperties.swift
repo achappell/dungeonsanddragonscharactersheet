@@ -12,6 +12,7 @@
 import Foundation
 import CoreData
 
+// codebeat:disable[TOO_MANY_IVARS]
 extension Character {
 
     @NSManaged var age: Int16
@@ -19,6 +20,7 @@ extension Character {
     @NSManaged var gender: String
     @NSManaged var name: String
     @NSManaged var selected: Bool
-    @NSManaged var baseAbilityScores: OrderedSet
+    @NSManaged var baseAbilityScores: NSOrderedSet
 
 }
+// codebeat:enable[TOO_MANY_IVARS]

@@ -8,6 +8,7 @@ script:
 before_install: 
   - gem install activesupport -v 4.2.6
   - gem install cocoapods -v '1.0.1' 
+  - pod repo update
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 before_script:

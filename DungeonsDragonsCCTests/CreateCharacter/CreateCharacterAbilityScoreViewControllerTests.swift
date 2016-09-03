@@ -218,7 +218,7 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
         testViewController.nextBarButtonItem = UIBarButtonItem()
         testViewController.nextBarButtonItem.isEnabled = false
         
-        testViewController.textFieldShouldReturn(testViewController.charismaTextField)
+        XCTAssertTrue(testViewController.textFieldShouldReturn(testViewController.charismaTextField))
         
         XCTAssertTrue(testViewController.nextBarButtonItem.isEnabled)
         XCTAssertFalse(testViewController.charismaTextField.isFirstResponder)
@@ -253,7 +253,7 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
         testViewController.nextBarButtonItem = UIBarButtonItem()
         testViewController.nextBarButtonItem.isEnabled = false
         
-        testViewController.textFieldShouldReturn(testViewController.strengthTextField)
+        XCTAssertTrue(testViewController.textFieldShouldReturn(testViewController.strengthTextField))
         
         waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error)
@@ -295,7 +295,7 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
         testViewController.nextBarButtonItem = UIBarButtonItem()
         testViewController.nextBarButtonItem.isEnabled = false
         
-        testViewController.textFieldShouldReturn(testViewController.charismaTextField)
+        XCTAssertTrue(testViewController.textFieldShouldReturn(testViewController.charismaTextField))
         
         waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error)

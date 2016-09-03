@@ -32,7 +32,7 @@ class Character: NSManagedObject {
     
     class func setSelectedCharacter(_ character: Character) {
         MagicalRecord.save(blockAndWait: { (context) -> Void in
-            if let selectedCharacters = Character.mr_findAll(with: NSPredicate(format: "selected ==1")) as! [Character]? {
+            if let selectedCharacters = Character.mr_findAll(with: NSPredicate(format: "selected == 1")) as? [Character] {
                 for selectedCharacter in selectedCharacters {
                     selectedCharacter.selected = false
                 }
@@ -47,9 +47,11 @@ class Character: NSManagedObject {
     }
     
     func abilityScoreOfType(_ abilityType: AbilityType) -> AbilityScore {
-        for abilityScore in baseAbilityScores.array as! [AbilityScore] {
-            if abilityScore.type == abilityType.rawValue {
-                return abilityScore
+        if let abilityScores = baseAbilityScores.array as? [AbilityScore] {
+            for abilityScore in abilityScores {
+                if abilityScore.type == abilityType.rawValue {
+                    return abilityScore
+                }
             }
         }
         

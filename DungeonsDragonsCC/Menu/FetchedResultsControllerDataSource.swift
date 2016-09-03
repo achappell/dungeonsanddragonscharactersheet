@@ -101,6 +101,7 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
         tableView?.endUpdates()
     }
     
+    // codebeat:disable[ARITY]
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         if let indexPath = indexPath, let newIndexPath = newIndexPath, let tableView = tableView {
@@ -115,6 +116,7 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
             }
         }
     }
+    // codebeat:enable[ARITY]
     
     func selectedItem() -> AnyObject? {
         if let tableView = tableView {

@@ -54,12 +54,12 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
     }
     
     func createCharacter() -> Character {
-        let strengthScore = AbilityScore.insertItemWithBaseScore(Int16(self.strengthTextField.text!)!, type: .strength)
-        let dexterityScore = AbilityScore.insertItemWithBaseScore(Int16(self.dexterityTextField.text!)!, type: .dexterity)
-        let constitutionScore = AbilityScore.insertItemWithBaseScore(Int16(self.constitutionTextField.text!)!, type: .constitution)
-        let intelligenceScore = AbilityScore.insertItemWithBaseScore(Int16(self.intelligenceTextField.text!)!, type: .intelligence)
-        let wisdomScore = AbilityScore.insertItemWithBaseScore(Int16(self.wisdomTextField.text!)!, type: .wisdom)
-        let charismaScore = AbilityScore.insertItemWithBaseScore(Int16(self.charismaTextField.text!)!, type: .charisma)
+        let strengthScore = AbilityScore.insertItem(baseScoreString:self.strengthTextField.text, type: .strength)
+        let dexterityScore = AbilityScore.insertItem(baseScoreString:self.dexterityTextField.text, type: .dexterity)
+        let constitutionScore = AbilityScore.insertItem(baseScoreString:self.constitutionTextField.text, type: .constitution)
+        let intelligenceScore = AbilityScore.insertItem(baseScoreString:self.intelligenceTextField.text, type: .intelligence)
+        let wisdomScore = AbilityScore.insertItem(baseScoreString:self.wisdomTextField.text, type: .wisdom)
+        let charismaScore = AbilityScore.insertItem(baseScoreString:self.charismaTextField.text, type: .charisma)
         
         let abilityScores = NSOrderedSet(array: [strengthScore,dexterityScore, constitutionScore, intelligenceScore, wisdomScore, charismaScore])
         let character = Character.insertItemWithAbilityScores(abilityScores)
@@ -77,8 +77,8 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
             scrollView.scrollIndicatorInsets = contentInsets
         
             view.frame.size.height -= kbSize.height
-            if !view.frame.contains(activeField!.frame.origin) {
-                scrollView.scrollRectToVisible(activeField!.frame, animated: true)
+            if let activeField = activeField, !view.frame.contains(activeField.frame.origin) {
+                scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }
     }

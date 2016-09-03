@@ -25,7 +25,7 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.collectionView!.reloadData()
+        self.collectionView?.reloadData()
     }
     
     func createCharacter(_ sender: UIButton!) {
@@ -61,6 +61,7 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
         return 1
     }
     
+    // codebeat:disable[ARITY]
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         if let character = anObject as? Character {
             if type == .delete {
@@ -71,5 +72,6 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
             collectionView?.reloadData()
         }
     }
+    // codebeat:enable[ARITY]
 
 }

@@ -30,7 +30,7 @@ class CreateCharacterRaceViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel!.text = races?[(indexPath as NSIndexPath).row].name
+        cell.textLabel?.text = races?[(indexPath as NSIndexPath).row].name
         
         return cell
     }

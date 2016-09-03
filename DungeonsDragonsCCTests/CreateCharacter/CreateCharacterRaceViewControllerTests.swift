@@ -17,7 +17,7 @@ class CreateCharacterRaceViewControllerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateCharacterRaceViewController") as! CreateCharacterRaceViewController
+        viewController = UIStoryboard(name: "CreateCharacter", bundle: nil).instantiateViewController(withIdentifier: "CreateCharacterRaceViewController") as! CreateCharacterRaceViewController
         viewController.performSelector(onMainThread: #selector(UIViewController.loadView), with: nil, waitUntilDone: true)
     }
     

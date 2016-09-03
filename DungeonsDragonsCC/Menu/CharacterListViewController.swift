@@ -46,4 +46,5 @@ class CharacterListViewController: UIViewController, FetchedResultsControllerDat
             }
         }
     }
+    
 }

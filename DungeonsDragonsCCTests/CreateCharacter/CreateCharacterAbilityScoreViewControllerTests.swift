@@ -43,7 +43,7 @@ class CreateCharacterAbilityScoreViewControllerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateCharacterAbilityScoreViewController") as! CreateCharacterAbilityScoreViewController
+        viewController = UIStoryboard(name: "CreateCharacter", bundle: nil).instantiateViewController(withIdentifier: "CreateCharacterAbilityScoreViewController") as! CreateCharacterAbilityScoreViewController
         viewController.performSelector(onMainThread: #selector(UIViewController.loadView), with: nil, waitUntilDone: true)
         
         viewControllerMock = CreateCharacterAbilityMock()

@@ -31,21 +31,5 @@ class CharacterSheetViewControllerTests: XCTestCase {
         let viewController = CharacterSheetViewController(nibName: nil, bundle: nil)
         XCTAssertNotNil(viewController, "View Controller failed initialization")
     }
-    
-    func testUpdatedResultsController() {
-        let character = Character.mr_createEntity()
-        
-        viewController.controller(viewController.characterFetchedResultsController, didChange: character!, at: nil, for: .update, newIndexPath: nil)
-        
-        XCTAssertTrue(viewController.character == character)
-    }
-    
-    func testDeletedResultsController() {
-        let character = Character.mr_createEntity()
-        
-        viewController.controller(viewController.characterFetchedResultsController, didChange: character!, at: nil, for: .delete, newIndexPath: nil)
-        
-        XCTAssertNil(viewController.character)
-    }
 
 }

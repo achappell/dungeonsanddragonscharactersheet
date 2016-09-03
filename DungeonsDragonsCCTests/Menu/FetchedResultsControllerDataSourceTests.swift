@@ -39,10 +39,6 @@ class FetchedResultsControllerDataSourceTests: XCTestCase {
         XCTAssertNotNil(fetchedResultsControllerDataSource.fetchedResultsController.delegate!)
     }
     
-    func testCanEditRows() {
-        XCTAssertTrue(fetchedResultsControllerDataSource.tableView(fetchedResultsControllerDataSource.tableView!, canEditRowAt: IndexPath(row: 0, section: 0)))
-    }
-    
     func testInsertObject() {
         
         class TestTableView : UITableView {

@@ -15,7 +15,7 @@ class CreateCharacterNameViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateCharacterNameViewController") as! CreateCharacterNameViewController
+        viewController = UIStoryboard(name: "CreateCharacter", bundle: nil).instantiateViewController(withIdentifier: "CreateCharacterNameViewController") as! CreateCharacterNameViewController
         viewController.performSelector(onMainThread: #selector(UIViewController.loadView), with: nil, waitUntilDone: true)
     }
     

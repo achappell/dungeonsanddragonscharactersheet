@@ -1,8 +1,8 @@
 language: "objective-c"
 osx_image: "xcode8"
-xcode_workspace: DungeonsDragonsCC.xcworkspace
-xcode_scheme: DungeonsDragonsCCTravis
 xcode_sdk: iphonesimulator10.0
+script:
+  - xcodebuild test -workspace DungeonsDragonsCC.xcworkspace -scheme DungeonsDragonsCCTravis -destination 'platform=iOS Simulator,name=iPhone 6s'
 before_install: 
   - gem install activesupport -v 4.2.6
   - gem install cocoapods -v '1.0.1' 

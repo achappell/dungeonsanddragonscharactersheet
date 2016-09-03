@@ -26,6 +26,8 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var nextBarButtonItem: UIBarButtonItem!
     
+    @IBOutlet var stackView: UIStackView!
+    
     weak var activeField: UITextField?
 
     override func viewDidLoad() {
@@ -76,7 +78,6 @@ class CreateCharacterAbilityScoreViewController: UIViewController, UITextFieldDe
             scrollView.contentInset = contentInsets
             scrollView.scrollIndicatorInsets = contentInsets
         
-            view.frame.size.height -= kbSize.height
             if let activeField = activeField, !view.frame.contains(activeField.frame.origin) {
                 scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }

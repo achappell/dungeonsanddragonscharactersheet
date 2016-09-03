@@ -12,12 +12,11 @@ import CoreData
 class CharacterSheetViewController: UICollectionViewController, NSFetchedResultsControllerDelegate {
     
     var character : Character?
-    lazy var characterFetchedResultsController : NSFetchedResultsController<NSFetchRequestResult> = Character.selectedCharacterFetchedResultsController(self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let collectionView = self.collectionView {
+        if let collectionView = collectionView {
             collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier:"NoCharacterHeader")
         }
     }
@@ -25,11 +24,16 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.collectionView?.reloadData()
+        character = Character.selectedCharacter()
+        
+        collectionView?.reloadData()
     }
     
     func createCharacter(_ sender: UIButton!) {
-        self.performSegue(withIdentifier: "CreateCharacter", sender: self)
+        let storyboard = UIStoryboard(name: "CreateCharacter", bundle: nil)
+        present(storyboard.instantiateInitialViewController()!, animated: true) {
+            
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,18 +64,5 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
-    
-    // codebeat:disable[ARITY]
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        if let character = anObject as? Character {
-            if type == .delete {
-                self.character = nil
-            } else {
-                self.character = character
-            }
-            collectionView?.reloadData()
-        }
-    }
-    // codebeat:enable[ARITY]
 
 }

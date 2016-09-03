@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12C9851C94E9117F32D3F7BB /* Pods_DungeonsDragonsCC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055D46B65D41DE70C848F5E7 /* Pods_DungeonsDragonsCC.framework */; };
 		372A5BF51CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A5BF41CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift */; };
+		375CC76E1D7B0E61007232B5 /* CreateCharacter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 375CC76D1D7B0E61007232B5 /* CreateCharacter.storyboard */; };
 		925890A8E56FE1C85BE70A01 /* Pods_DungeonsDragonsCCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9687F3DC2BE03326A7CC649 /* Pods_DungeonsDragonsCCTests.framework */; };
 		C88886621CB02F120029CDA3 /* CoreRulebookCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88886611CB02F120029CDA3 /* CoreRulebookCoordinatorTests.swift */; };
 		C88886641CB03F290029CDA3 /* CreateCharacterRaceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88886631CB03F290029CDA3 /* CreateCharacterRaceViewControllerTests.swift */; };
@@ -88,6 +89,7 @@
 /* Begin PBXFileReference section */
 		055D46B65D41DE70C848F5E7 /* Pods_DungeonsDragonsCC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DungeonsDragonsCC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		372A5BF41CAF6B2200CE4BD9 /* DungeonsDragonsCCUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DungeonsDragonsCCUITests.swift; sourceTree = "<group>"; };
+		375CC76D1D7B0E61007232B5 /* CreateCharacter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateCharacter.storyboard; sourceTree = "<group>"; };
 		40C1CEACAFC2F9F16AD2953E /* Pods-DungeonsDragonsCC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DungeonsDragonsCC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DungeonsDragonsCC/Pods-DungeonsDragonsCC.release.xcconfig"; sourceTree = "<group>"; };
 		727FC792DE0A87232905926B /* Pods-DungeonsDragonsCCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DungeonsDragonsCCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DungeonsDragonsCCTests/Pods-DungeonsDragonsCCTests.release.xcconfig"; sourceTree = "<group>"; };
 		A9687F3DC2BE03326A7CC649 /* Pods_DungeonsDragonsCCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DungeonsDragonsCCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +293,7 @@
 				C8A833251CA0378F004CF6A9 /* CreateCharacterAbilityScoreViewController.swift */,
 				C8A833261CA0378F004CF6A9 /* CreateCharacterNameViewController.swift */,
 				C89520E41CB01A4000210751 /* CreateCharacterRaceViewController.swift */,
+				375CC76D1D7B0E61007232B5 /* CreateCharacter.storyboard */,
 			);
 			path = CreateCharacter;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				375CC76E1D7B0E61007232B5 /* CreateCharacter.storyboard in Resources */,
 				C8A832FB1CA03726004CF6A9 /* LaunchScreen.storyboard in Resources */,
 				C8A8336D1CA037B4004CF6A9 /* corerulebook.json in Resources */,
 				C8A832F81CA03726004CF6A9 /* Assets.xcassets in Resources */,

@@ -26,8 +26,8 @@ class Character: NSManagedObject {
         return Character.mr_fetchAllSorted(by: "name", ascending: true, with: nil, groupBy: nil, delegate: nil)
     }
     
-    class func selectedCharacterFetchedResultsController(_ delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController<NSFetchRequestResult> {
-        return Character.mr_fetchAllGrouped(by: nil, with: NSPredicate(format: "selected=1"), sortedBy: nil, ascending: true, delegate: delegate)
+    class func selectedCharacter() -> Character? {
+        return Character.mr_findFirst(with: NSPredicate(format: "selected=1"))
     }
     
     class func setSelectedCharacter(_ character: Character) {

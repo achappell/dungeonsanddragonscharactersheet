@@ -14,15 +14,10 @@ protocol FetchedResultsControllerDataSourceDelegate {
     func fetchedResultsControllerDataSource(_ deleteObject: AnyObject) -> Void
 }
 
-class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITableViewDelegate {
     
     var delegate : FetchedResultsControllerDataSourceDelegate?
-    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult> {
-        didSet {
-            fetchedResultsController.delegate = self
-            
-        }
-    }
+    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>
     var reuseIdentifier : String
     var paused : Bool {
         didSet {
@@ -37,21 +32,22 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
                     let fetchError = error as NSError
                     print("\(fetchError), \(fetchError.userInfo)")
                 }
+                self.fetchedResultsController.delegate = self
+                self.tableView?.dataSource = self
+                self.tableView?.delegate = self
                 self.tableView?.reloadData()
             }
         }
     }
-    weak var tableView : UITableView? {
-        didSet {
-            tableView?.dataSource = self
-        }
-    }
+    private weak var tableView : UITableView?
     
-    init(tableView: UITableView, fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>, reuseIdentifier: String) {
+    init(tableView: UITableView?, fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>, reuseIdentifier: String) {
         self.tableView = tableView
         self.fetchedResultsController = fetchedResultsController
         self.reuseIdentifier = reuseIdentifier
         self.paused = false
+        super.init()
+    
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

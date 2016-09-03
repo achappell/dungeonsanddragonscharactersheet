@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicalRecord
 
 class CreateCharacterNameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
@@ -40,8 +41,10 @@ class CreateCharacterNameViewController: UIViewController, UIPickerViewDelegate,
         
             character.alignment = selectedAlignment
             Character.setSelectedCharacter(character)
-        
-            dismiss(animated: true, completion: nil)
+            
+            character.managedObjectContext?.mr_saveToPersistentStore(completion: { (success, error) in
+                self.dismiss(animated: true, completion: nil)
+            })
         }
     }
     

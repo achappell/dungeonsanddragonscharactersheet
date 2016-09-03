@@ -2,7 +2,7 @@ language: "objective-c"
 osx_image: "xcode8"
 xcode_sdk: iphonesimulator10.0
 script:
-  - xcodebuild test -workspace DungeonsDragonsCC.xcworkspace -scheme DungeonsDragonsCCTravis -destination 'platform=iOS Simulator,name=iPhone 6s' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - xcodebuild test -workspace DungeonsDragonsCC.xcworkspace -scheme DungeonsDragonsCCTravis -destination 'platform=iOS Simulator,name=iPhone 6s' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 before_install: 
   - gem install activesupport -v 4.2.6
   - gem install cocoapods -v '1.0.1' 

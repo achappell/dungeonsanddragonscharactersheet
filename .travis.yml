@@ -1,15 +1,14 @@
-language: swift
-osx_image: xcode8
+language: "objective-c"
+osx_image: "xcode8"
 xcode_workspace: DungeonsDragonsCC.xcworkspace
 xcode_scheme: DungeonsDragonsCCTravis
 xcode_sdk: iphonesimulator10.0
-script:
-  - xcodebuild test -workspace DungeonsDragonsCC.xcworkspace -scheme DungeonsDragonsCCTravis -destination 'platform=iOS Simulator,name=iPhone 6'
 before_install: 
   - gem install activesupport -v 4.2.6
   - gem install cocoapods -v '1.0.1' 
   - pod repo update --silent
 after_success:
 - bash <(curl -s https://codecov.io/bash)
-before_script:
-- pod install
+"group": "stable",
+"dist": "osx",
+"os": "osx"

@@ -10,8 +10,8 @@ coverage:
     changes: false
     
   ignore:
-    DungeonsDragonsCCTests/.*
-    Pods/.*
+    - "DungeonsDragonsCCTests/.*"
+    - "Pods/.*"
 
 comment:
   layout: "header, diff"

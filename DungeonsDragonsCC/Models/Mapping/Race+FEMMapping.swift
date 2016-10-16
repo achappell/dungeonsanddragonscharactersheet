@@ -11,17 +11,16 @@ import FastEasyMapping
 import MagicalRecord
 
 extension Race: FEMMapped {
-    
+
     class func mapping() -> FEMMapping {
-        
+
         let mapping = FEMMapping(entityName: Race.mr_entityName())
-        mapping.addAttributes(from: ["name","physicalDescription","adventures","alignmentAndReligion","relations","society"])
-        
+        mapping.addAttributes(from: ["name", "physicalDescription", "adventures", "alignmentAndReligion", "relations", "society"])
+
             mapping.add(toManyRelationshipMapping: AbilityScore.mapping(), forProperty: "scoreModifiers", keyPath: "scoreModifiers")
             mapping.add(toManyRelationshipMapping: Modifier.mapping(), forProperty: "modifiers", keyPath: "modifiers")
-        
+
         return mapping
     }
-    
-}
 
+}

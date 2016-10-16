@@ -16,18 +16,18 @@ struct JSONDeserializer {
             if let JSONDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject] {
                 return objectFromDictionary(JSONDict, classType: classType)
             }
-            
+
             return objectFromDictionary([:], classType: classType)
         } catch {
-            
+
         }
-        
+
         return nil
     }
-    
+
     func objectFromDictionary<T: FEMMapped>(_ dictionary: [String:AnyObject], classType: T.Type) -> T? {
         let object = FEMDeserializer.object(fromRepresentation: dictionary, mapping: classType.mapping(), context: NSManagedObjectContext.mr_default())
-        
+
         return object as? T
     }
 }

@@ -11,13 +11,13 @@ import MagicalRecord
 import FastEasyMapping
 
 extension AbilityScore: FEMMapped {
-    
+
     class func mapping() -> FEMMapping {
-        
+
         let mapping = FEMMapping(entityName: AbilityScore.mr_entityName())
-        mapping.addAttributes(from: ["abilityModifier","baseScore","tempAdjustment","tempModifier","type"])
-        
+        mapping.addAttributes(from: ["abilityModifier", "baseScore", "tempAdjustment", "tempModifier", "type"])
+
         return mapping
     }
-    
+
 }

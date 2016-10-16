@@ -9,13 +9,13 @@
 import XCTest
 @testable import DungeonsDragonsCC
 
-class Modifier_FEMMappingTests: XCTestCase {
+class ModifierFEMMappingTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
@@ -25,30 +25,30 @@ class Modifier_FEMMappingTests: XCTestCase {
         let deserializer = JSONDeserializer()
         let modifiers = getModifiers()
         let modifier = deserializer.objectFromDictionary(modifiers![0], classType: Modifier.self)! as Modifier
-                
+
         XCTAssertEqual(modifier.value, 0)
         XCTAssertEqual(modifier.type, "Size")
         XCTAssertEqual(modifier.originalText, "Dwarves are Medium creatures and have no bonuses or penalties due to their size.")
     }
-    
+
     func testSkillMapping() {
         let deserializer = JSONDeserializer()
         let modifiers = getModifiers()
         let modifier = deserializer.objectFromDictionary(modifiers![2], classType: Modifier.self)! as Modifier
-                
+
         XCTAssertEqual(modifier.value, 2)
         XCTAssertEqual(modifier.type, "Skill")
         XCTAssertEqual(modifier.originalText, "Dwarves receive a +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.")
         XCTAssertEqual(modifier.circumstance, "Only for nonmagical goods that contain precious metals or gemstones.")
     }
-    
+
     func getModifiers() -> [[String:AnyObject]]? {
-        
-        let bundle = Bundle(for: CoreRulebook_FEMMappingTests.self)
+
+        let bundle = Bundle(for: CoreRulebookFEMMappingTests.self)
         let path = bundle.path(forResource: "testcorerulebook", ofType: "json")
-        
+
         let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
-        
+
         do {
             let JSONDict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
 
@@ -56,9 +56,9 @@ class Modifier_FEMMappingTests: XCTestCase {
                 return modifiers
             }
         } catch {
-            
+
         }
-        
+
         return nil
     }
 

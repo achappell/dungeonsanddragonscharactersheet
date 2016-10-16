@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2548a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -30,9 +30,9 @@
         <!--Character-->
         <scene sceneID="cG8-qI-sLf">
             <objects>
-                <collectionViewController storyboardIdentifier="CharacterSheet" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VQo-Ju-tpa" customClass="CharacterSheetViewController" customModule="DungeonsDragonsCC" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="CharacterSheetViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VQo-Ju-tpa" customClass="CharacterSheetViewController" customModule="DungeonsDragonsCC" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="kAc-5h-dTN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8am-bc-bmY">
@@ -42,8 +42,8 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AbilityHeader" id="MoN-Ir-Gfx" customClass="AbilityScoreCollectionViewCell" customModule="DungeonsDragonsCC" customModuleProvider="target">
-                                <rect key="frame" x="28" y="0.0" width="320" height="236"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AbilityScoreCollectionViewCell" id="MoN-Ir-Gfx" customClass="AbilityScoreCollectionViewCell" customModule="DungeonsDragonsCC" customModuleProvider="target">
+                                <rect key="frame" x="47" y="0.0" width="320" height="236"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="236"/>
@@ -382,10 +382,10 @@
                                     <constraint firstItem="S8q-1M-Ds0" firstAttribute="baseline" secondItem="7un-Q6-WqZ" secondAttribute="baseline" id="zyt-zH-JqT"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="charismaLabel" destination="Xxm-iP-CZJ" id="idU-BU-5k8"/>
-                                    <outlet property="charismaModLabel" destination="S8q-1M-Ds0" id="FEr-Y2-RsN"/>
-                                    <outlet property="charismaTempAdjLabel" destination="7un-Q6-WqZ" id="9CU-Z0-EXd"/>
-                                    <outlet property="charismaTempModLabel" destination="Dmo-5t-J4r" id="Vhk-22-5lG"/>
+                                    <outlet property="charismaLabel" destination="Xxm-iP-CZJ" id="FsI-el-AaW"/>
+                                    <outlet property="charismaModLabel" destination="S8q-1M-Ds0" id="32w-rC-Lve"/>
+                                    <outlet property="charismaTempAdjLabel" destination="7un-Q6-WqZ" id="29l-SB-k7J"/>
+                                    <outlet property="charismaTempModLabel" destination="Dmo-5t-J4r" id="rc9-52-gwb"/>
                                     <outlet property="constitutionLabel" destination="mkt-fF-ihl" id="3rc-Mg-feI"/>
                                     <outlet property="constitutionModLabel" destination="5u3-pc-J21" id="Bi6-Vz-Sx8"/>
                                     <outlet property="constitutionTempAdjLabel" destination="Zr4-4d-B3w" id="jyc-Vj-oIr"/>
@@ -432,21 +432,21 @@
                         <viewControllerLayoutGuide type="bottom" id="Dzz-da-9bD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6kI-0h-Lm5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Oj5-7c-EZy">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="iVs-w7-qcQ" style="IBUITableViewCellStyleDefault" id="osS-J6-Wc3">
-                                        <rect key="frame" x="0.0" y="86" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="86" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="osS-J6-Wc3" id="yUM-ZV-Nvt">
-                                            <frame key="frameInset" width="342" height="43"/>
+                                            <frame key="frameInset" width="381" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Manage Characters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iVs-w7-qcQ">
-                                                    <frame key="frameInset" minX="15" width="325" height="43"/>
+                                                    <frame key="frameInset" minX="15" width="364" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -491,21 +491,21 @@
                         <viewControllerLayoutGuide type="bottom" id="Kb7-qU-Qi6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="okg-nX-TvP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2Ie-0s-RFJ">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="5EH-Rk-vNz" style="IBUITableViewCellStyleDefault" id="ZQF-uD-yST">
-                                        <rect key="frame" x="0.0" y="86" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="86" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZQF-uD-yST" id="WQ4-9l-c2Y">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5EH-Rk-vNz">
-                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                    <frame key="frameInset" minX="15" width="384" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -562,7 +562,7 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+        <simulatedScreenMetrics key="destination" type="retina5_5.fullscreen"/>
     </simulatedMetricsContainer>
     <color key="tintColor" red="0.50196081399917603" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

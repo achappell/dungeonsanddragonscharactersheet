@@ -1,6 +1,6 @@
 //
 //  CoreRulebook.swift
-//  
+//
 //
 //  Created by Amanda Chappell on 3/2/16.
 //

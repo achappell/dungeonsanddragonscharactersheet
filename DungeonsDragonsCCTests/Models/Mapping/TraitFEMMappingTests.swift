@@ -9,41 +9,41 @@
 import XCTest
 @testable import DungeonsDragonsCC
 
-class Trait_FEMMappingTests: XCTestCase {
+class TraitFEMMappingTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
     func testFEMMapping() {
-        
-        let bundle = Bundle(for: CoreRulebook_FEMMappingTests.self)
+
+        let bundle = Bundle(for: CoreRulebookFEMMappingTests.self)
         let path = bundle.path(forResource: "testcorerulebook", ofType: "json")
-        
+
         let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
-        
+
         do {
             let JSONDict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
-            
-            
+
+
             let deserializer = JSONDeserializer()
-            
+
             if let book = JSONDict["coreRulebook"] as? [String: AnyObject], let races = book["races"] as? [[String: AnyObject]], let traits = races[0]["traits"] as? [[String:AnyObject]] {
                 let trait = deserializer.objectFromDictionary(traits[0], classType: Trait.self)! as Trait
-                
+
                 XCTAssertEqual(trait.value, 20)
                 XCTAssertEqual(trait.type, "Speed")
                 XCTAssertEqual(trait.name, "Slow and Steady")
                 XCTAssertEqual(trait.originalText, "Dwarves have a base speed of 20 feet, but their speed is never modified by armor or encumbrance.")
             }
         } catch {
-            
+
         }
     }
 

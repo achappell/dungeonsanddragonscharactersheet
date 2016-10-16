@@ -1,6 +1,6 @@
 //
 //  Skill+CoreDataProperties.swift
-//  
+//
 //
 //  Created by Amanda Chappell on 3/5/16.
 //

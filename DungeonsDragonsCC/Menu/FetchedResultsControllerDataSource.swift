@@ -14,18 +14,18 @@ protocol FetchedResultsControllerDataSourceDelegate {
     func fetchedResultsControllerDataSource(_ deleteObject: AnyObject) -> Void
 }
 
-class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITableViewDelegate {
-    
-    var delegate : FetchedResultsControllerDataSourceDelegate?
-    var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>
-    var reuseIdentifier : String
-    var paused : Bool {
+class FetchedResultsControllerDataSource: NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITableViewDelegate {
+
+    var delegate: FetchedResultsControllerDataSourceDelegate?
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>
+    var reuseIdentifier: String
+    var paused: Bool {
         didSet {
             if paused {
                 fetchedResultsController.delegate = nil
             } else {
                 fetchedResultsController.delegate = self
-                
+
                 do {
                  try fetchedResultsController.performFetch()
                 } catch {
@@ -39,24 +39,24 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
             }
         }
     }
-    private weak var tableView : UITableView?
-    
+    private weak var tableView: UITableView?
+
     init(tableView: UITableView?, fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>, reuseIdentifier: String) {
         self.tableView = tableView
         self.fetchedResultsController = fetchedResultsController
         self.reuseIdentifier = reuseIdentifier
         self.paused = false
         super.init()
-    
+
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = fetchedResultsController.sections {
             return sections.count
         }
         return 0
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
             let sectionInfo = sections[section]
@@ -64,23 +64,23 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
         }
         return 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let object = fetchedResultsController.object(at: indexPath)
-        
+
         var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        
+
         if let delegate = delegate {
             delegate.fetchedResultsControllerDataSource(&cell, withObject: object)
         }
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if let delegate = delegate {
@@ -88,18 +88,18 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
             }
         }
     }
-    
+
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView?.beginUpdates()
     }
-    
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView?.endUpdates()
     }
-    
+
     // codebeat:disable[ARITY]
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
+
         if let indexPath = indexPath, let newIndexPath = newIndexPath, let tableView = tableView {
             if type == .insert {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
@@ -113,7 +113,7 @@ class FetchedResultsControllerDataSource : NSObject, UITableViewDataSource, NSFe
         }
     }
     // codebeat:enable[ARITY]
-    
+
     func selectedItem() -> AnyObject? {
         if let tableView = tableView {
             if let path = tableView.indexPathForSelectedRow {

@@ -10,23 +10,20 @@ import XCTest
 @testable import DungeonsDragonsCC
 
 class CharacterSheetViewControllerTests: XCTestCase {
-    
-    var viewController : CharacterSheetViewController!
-    
+
+    var viewController: CharacterSheetViewController!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CharacterSheet") as! CharacterSheetViewController
+        viewController = UIStoryboard.storyboard(.Main).instantiateViewController() as CharacterSheetViewController
         viewController.performSelector(onMainThread: #selector(UIViewController.loadView), with: nil, waitUntilDone: true)
     }
-    
+
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         viewController = nil
     }
-    
+
     func testMakeViewController() {
         let viewController = CharacterSheetViewController(nibName: nil, bundle: nil)
         XCTAssertNotNil(viewController, "View Controller failed initialization")

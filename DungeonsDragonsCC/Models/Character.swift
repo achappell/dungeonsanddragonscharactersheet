@@ -47,14 +47,14 @@ class Character: NSManagedObject {
     }
 
     func abilityScoreOfType(_ abilityType: AbilityType) -> AbilityScore {
-        if let abilityScores = baseAbilityScores.array as? [AbilityScore] {
-            for abilityScore in abilityScores {
-                if abilityScore.type == abilityType.rawValue {
-                    return abilityScore
-                }
-            }
+        let abilityScores = baseAbilityScores.array.flatMap { $0 as? AbilityScore }.filter { (score) -> Bool in
+            score.type == abilityType.rawValue
         }
 
+        if let abilityScore = abilityScores.first {
+            return abilityScore
+        }
+        
         let defaultAbilityScore = AbilityScore.mr_createEntity()!
         defaultAbilityScore.baseScore = 10
         defaultAbilityScore.type = abilityType.rawValue

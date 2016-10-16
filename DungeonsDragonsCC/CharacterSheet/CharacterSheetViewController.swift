@@ -15,6 +15,10 @@ class CharacterSheetViewController: UICollectionViewController, NSFetchedResults
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let collectionView = collectionView {
+            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier:"NoCharacterHeader")
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

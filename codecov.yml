@@ -12,6 +12,8 @@ coverage:
   ignore:
     - "DungeonsDragonsCCTests/.*"
     - "Pods/.*"
+    - "/*ViewController.swift"
+    - "/*Cell.swift"
 
 comment:
   layout: "header, diff"
